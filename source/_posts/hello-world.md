@@ -82,7 +82,7 @@ the easiest way is to embed html into the md file like so:
 
 for this html, I used Windows Terminal (the new one), went into its Settings > Interaction > "Text formats to copy to the clipboard" > Change to "HTML"
 
-I then removed all the `background-color:#0c0c0c;` attribute and also changed the `font-size` to `13px`
+I then removed the `<HTML>`, `<HEAD>` and `<BODY>` tags all the `background-color:#0c0c0c;` attribute and also changed the `font-size` to `13px`
 
 I still think it looks a bit weird but whatever
 
