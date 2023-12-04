@@ -8,7 +8,7 @@ category: pwn
 
 > Pst! I heard you were looking to get some flags from that flag shop over there, but they were out of stock. Luckily, I think I can help you with that... I've attached the source code of the shop [here](https://gist.github.com/azazazo/de242e67acada5e16be7c3b0745b5525), and you can download the binary [here](https://github.com/azazazo/blahajctf-files/raw/main/dank%20meower%20beta/guide). Contact me at `nc 188.166.197.31 30003` if you're still keen...
 
-This is a simple buffer overflow challenge, with a helpful stack diagram even showing you the layout of the stack itself. The challenge already does a helpful job of explaining the basics of a buffer overflow. However, it seems that many people were stuck on how to give themselves the $2,147,483,647 (`0x7fffffff`) required to get the flag, since that requires one to input `0x7fffffff` as little-endian.
+This is a simple buffer overflow challenge, with a helpful stack diagram even showing you the layout of the stack itself. The challenge already does a helpful job of explaining the basics of a buffer overflow. The stack diagram thing was cool and helpful. However, it seems that many people were stuck on how to give themselves the $2,147,483,647 (`0x7fffffff`) required to get the flag, since that requires one to input `0x7fffffff` as little-endian.
 
 We can send the `0x7fffffff` input with a pwntools script:
 ```py
