@@ -82,7 +82,17 @@ the easiest way is to embed html into the md file like so:
 
 for this html, I used Windows Terminal (the new one), went into its Settings > Interaction > "Text formats to copy to the clipboard" > Change to "HTML"
 
-I then removed the `<HTML>`, `<HEAD>` and `<BODY>` tags all the `background-color:#0c0c0c;` attribute and also changed the `font-size` to `13px`
+Then when you copy the thing, you have to somehow get the html instead of the raw text. Idk how to do that with python so I go to new tab, in the Inspect Element Console tab I paste in this js:
+```js
+document.addEventListener('paste', function(e) {
+  var html = e.clipboardData.getData('text/html');
+  console.log(html)
+})
+```
+
+then it logs the html for me
+
+I then remove the `<HTML>`, `<HEAD>` and `<BODY>` tags all the `background-color:#0c0c0c;` attribute and also changed the `font-size` to `13px`
 
 I still think it looks a bit weird but whatever
 
