@@ -86,6 +86,22 @@ I then removed all the `background-color:#0c0c0c;` attribute and also changed th
 
 I still think it looks a bit weird but whatever
 
+## Math?
+
+installed it from [here](https://adamliuuu.me/2021/01/15/Add-latex-support-for-hexo/)
+
+### KaTex
+
+{% katex %}
+c = \pm\sqrt{a^2 + b^2}
+{% endkatex %}
+
+### MathJax example
+
+{% mathjax %}
+\frac{1}{x^2-1}
+{% endmathjax %}
+
 ## Home page
 
 honestly rn I think the home page is fine but if we ever wanna change it:
