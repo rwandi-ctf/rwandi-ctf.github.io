@@ -4,17 +4,14 @@ date: 2023-12-05
 tags: pwn
 categories: BlahajCTF 2023
 ---
-# CARS
-
-##### DESC
 
 > **"**I've been playing around with this reporting system for "cyber affairs", generating ticket after ticket in hopes of breaking it. I have a feeling that there's a way to access the admin panel...**"**
 
-###### OVERVIEW
+## Overview
 
-PIE + NX BYPASS (ROP) + RET2WIN
+PIE + NX bypass (ROP) + ret2win
 
-##### EXPLOIT REVIEW
+## Exploit review
 
 I had access to the CARS binary. When runing checksec on the binary, I had obtained the following information...
 
@@ -24,7 +21,6 @@ RELRO:    Partial RELRO
 Stack:    No canary found
 NX:       NX enabled
 PIE:      PIE enabled
-
 ```
 
 Seeing that NX is enabled, I knew that I could not just directly inject shellcode into this program and PIE being enabled suggested that the program's base address is randomised. To bypass these restrictions, the source code had to be looked at.
@@ -82,24 +78,22 @@ int main()
 }
 ```
 
-Paying close attention to the main() function, I had observed that a variable named **report_number** that's being generated from a constant seed **0xb1adee** and it's address (&) being printed out in the long format (%l). Reversing this binary in ghidra gave me the offset of **report number** from the start of the binary file, which is 
+Paying close attention to the main() function, I had observed that a variable named `report_number` that's being generated from a constant seed `0xb1adee` and it's address (&) being printed out in the long format (%l). Reversing this binary in ghidra gave me the offset of `report number` from the start of the binary file, which is 
 
 ```
 0x104090 - 0x100000 = 0x4090
 ```
 
-To calculate program's base address, I had captured the address of **report_number** printed out in the long format, converted it to hex and subtracted 0x4090 from it. I then set the binary ELF's address to this calculated base address. PIE has been bypassed
+To calculate program's base address, I had captured the address of `report_number` printed out in the long format, converted it to hex and subtracted 0x4090 from it. I then set the binary ELF's address to this calculated base address. PIE has been bypassed
 
-Looking at the source code, I had noticed that there is a function conveniently planted there named 'admin()' that if called, prints out the flag. But this function is not called by any other function in the program. 
+Looking at the source code, I had noticed that there is a function conveniently planted there named `admin()` that if called, prints out the flag. But this function is not called by any other function in the program. 
 
-Looking at file_report() immediately called after the printf() statements, I saw that 2 fgets() functions are called and the second of which allows the user to write in 256 bytes of data into the **input** variable that can only hold 28 bytes. This buffer overflow can be exploited to overwrite RIP with admin()'s return address.
+Looking at file_report() immediately called after the printf() statements, I saw that 2 fgets() functions are called and the second of which allows the user to write in 256 bytes of data into the `input` variable that can only hold 28 bytes. This buffer overflow can be exploited to overwrite RIP with admin()'s return address.
 
 Firing up GDB, I used the command 
 
 ``` sh
-
 pattern create 400
-
 ```
 and inputted the generated result into the second fgets() function as discussed earlier. This caused a seg fault that I had used to look up registers. One particular register of interest is RBP and in a x64 stack layout, RBP is right next to the return address of the stack frame which is what I had wanted to control. In the GDB result after the seg fault, I had seen that RBP is overwritten with the generated pattern.
 
@@ -131,14 +125,14 @@ pattern search $rbp
 
 to find the offset of RBP. I had then +8 to the offset to find out the offset to the return address since RBP is 8 bytes long. In this case, I had found that the offset to the return address is 40. I then simply constructed a buffer overflow consisting of a payload of 40 bytes + admin()'s func address.
 
-EXPLOIT:
+## Exploit
 
 - Capture the address of **report_number** displayed in long format and convert it to hex value
 - Subtract 0x4090 from the calculated hex value to obtain program's base address and set it using pwntools 'elf.address=[BASE ADDRESS]'
 - Constrcut a payload consisting of 40 bytes + 8 bytes of our desired return address ([BASE ADDRESS] +elf.sym['admin']) | ROP
 - Send the payload to the second fgets() in file_report()
 
-EXPLOIT CODE:
+## Exploit Code
 
 ``` python
 import time
