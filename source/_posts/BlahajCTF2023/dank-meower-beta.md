@@ -1,8 +1,7 @@
 ---
 title: Dank Meower Beta
+tags: pwn
 ---
-
-category: pwn
 
 > I want to make a discord bot but I don't know how to use discord.py, so I made a prototype in C.
 
