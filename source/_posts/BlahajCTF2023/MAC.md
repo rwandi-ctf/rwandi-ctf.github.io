@@ -1,6 +1,6 @@
 ---
 title: MAC
-date: 2023-12-04 12:31:24
+date: 2023-12-05
 tags: crypto
 ---
 > mom can we have MAC? no there is MAC at blahajctf MAC at blahajctf:
