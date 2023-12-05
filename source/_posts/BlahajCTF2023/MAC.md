@@ -1,6 +1,6 @@
 ---
 title: MAC
-date: 2023-12-04 12:31:24
+date: 2023-12-05
 tags: crypto
 ---
 > mom can we have MAC? no there is MAC at blahajctf MAC at blahajctf:
@@ -180,15 +180,23 @@ But obviously, we aren't dealing with single bits here, but numbers with multipl
 \end{pmatrix}
 {% endkatex %}
 
-These are commonly equivalently represented as polynomials of degree less than n, so in this case:
+These are commonly equivalently represented as polynomials of degree n-1 or less, so in this case:
 
 {% katex '{ "displayMode": true }' %}
 1 \cdot x^2 + 1 \cdot x + 0
 {% endkatex %}
 
-Now, we can do xors on numbers by instead subtracting (or adding) their polynomial representations under GF(2^n). With this, we can now actually do long division.
+Now, we can do xors on numbers by instead subtracting (or adding) their polynomial representations under GF(2^n). For example, we can do {%katex%}6 \oplus 3{%endkatex%} instead like:
 
-Going back to the MAC algorithm, at the stage where we start doing the division, the dividend is `m<<32`, and the divisor is `key+(1<<32)`. After doing all the dividing, the number left is the MAC, which would be the remainder. Now, we can go to sage to construct these GF(2^n) polynomials and see if the remainder matches.
+{% katex '{ "displayMode": true }' %}
+(x^2 + x) + (x + 1) = (x^2 + 1)
+{% endkatex %}
+
+under GF(2^3). {%katex%}x^2+1{%endkatex%} has binary representation 101 which is 5, so {%katex%}6 \oplus 3=5{%endkatex%}
+
+With this, we can now actually do long division.
+
+Going back to the MAC algorithm, at the stage where we start doing the division, the dividend is `m<<32`, and the divisor is `key+(1<<32)`. After doing all the dividing, the number left is the MAC, which would hence be the remainder. Now, we can go to sage to construct these GF(2^n) polynomials and see if the remainder matches.
 
 Running the following in py:
 
