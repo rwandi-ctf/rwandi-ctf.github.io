@@ -11,7 +11,8 @@ categories: BlahajCTF 2023
 > PHP has some inner clown magic like juggling. Can you juggle your way to get the flag?
 
 We are given some source code:
-```php
+
+{% ccb lang:php caption:index.php url:'https://gist.github.com/azazazo/036a6890d65e7d65db97116b69010c46' url_text:'source link' gutter1:1-23 %}
 <?php
 
 $secret = 'REDACTED';
@@ -35,7 +36,7 @@ else{
 }
 
 ?>
-```
+{% endccb %}
 
 We have to comparisons to break, the first one is a `strcmp()` between our input secret and the actual secret, and the second one is to bypass the hash function.
 
@@ -67,7 +68,7 @@ html:true %}
 
 I.e., we need to find a sha1 hash that starts with 42, and whose third digit is not a digit (i.e. can only be a, b, c, d, e, f). We can make a python script that generates various hashes like that:
 
-```py
+{% ccb caption:hash.py gutter1:1-13 lang:py %}
 import hashlib
 
 chars = '0123456789abcdefghijklmnopqrstuvwxyz'
@@ -81,7 +82,7 @@ for i in chars:
                     if hash[:2].isnumeric() and int(hash[:2]) == 42 and not hash[2].isnumeric():
                         print(i+j+k+l+m)
                         print(hash)
-```
+{% endccb %}
 
 As it turns out this generates *a lot* of "valid" hashes so I took one (`0sob7` gives `42a5b...1aa52a`), and submitted it as the `meaningoflife`.
 
