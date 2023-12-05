@@ -1,6 +1,8 @@
 ---
 title: Dank Meower Beta
+date: 2023-12-03
 tags: pwn
+categories: BlahajCTF 2023
 ---
 
 > I want to make a discord bot but I don't know how to use discord.py, so I made a prototype in C.

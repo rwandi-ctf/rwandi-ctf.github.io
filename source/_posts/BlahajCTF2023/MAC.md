@@ -2,6 +2,7 @@
 title: MAC
 date: 2023-12-05
 tags: crypto
+categories: BlahajCTF 2023
 ---
 > mom can we have MAC? no there is MAC at blahajctf MAC at blahajctf:
 

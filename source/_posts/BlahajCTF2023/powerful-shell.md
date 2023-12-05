@@ -1,6 +1,8 @@
 ---
 title: Powerful Shell
+date: 2023-12-03
 tags: rev
+categories: BlahajCTF 2023
 ---
 
 > My friend ran some weird commands he found online to try and install some elite cheats and ended up getting his files encrypted! Help recover his encrypted file 😭
