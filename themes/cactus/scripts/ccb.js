@@ -63,7 +63,7 @@ hexo.extend.tag.register('ccb', function (args, content) {
 
     // Building HTML
     let figureClasses = [];
-    if(parsedArgs.scrollable) figureClasses.push("height: 400px; overflow: scroll; margin: 1rem 0;"); 
+    if(parsedArgs.scrollable) figureClasses.push("height: 400px; overflow-y: scroll; margin: 1rem 0;"); 
     if(parsedArgs.terminal) figureClasses.push("background-color: #1D1D1D;");
 
     const wrappedTextStyle  = parsedArgs.wrapped    ? {style: "white-space: pre-wrap; word-break: break-word;"} : {};
