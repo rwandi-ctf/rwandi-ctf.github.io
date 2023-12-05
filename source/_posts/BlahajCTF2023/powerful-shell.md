@@ -1,8 +1,7 @@
 ---
 title: Powerful Shell
+tags: rev
 ---
-
-category: rev
 
 > My friend ran some weird commands he found online to try and install some elite cheats and ended up getting his files encrypted! Help recover his encrypted file 😭
 
@@ -115,7 +114,7 @@ the_function(param_1, param_2){
 }
 ```
 
-So to solve this, we first generate the key `$k` with powershell cuz why not:
+Since AES is used, which is a symmetric key cipher, it uses the same secret key for both encryption and decryption. So to solve this, we first generate the key `$k` with powershell cuz why not:
 
 ```powershell
 $s = "devilscannotlie!"
@@ -143,7 +142,7 @@ Another thing to note is that the IV and `"devilscannotlie!"` are appended at th
 00006010 67 78 68 31:79 31 55 55|31 58 4D 34:51 72 34 71 gxh1y1UU1XM4Qr4q
 ```
 
-so we can get the IV and decrypt the image:
+so we can get the IV and decrypt the image fully:
 
 ```py
 from Crypto.Cipher import AES
