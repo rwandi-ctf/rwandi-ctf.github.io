@@ -7,9 +7,9 @@ tags:
 categories: BlahajCTF 2023
 ---
 
-> As part of Halogen's cybersecurity exam, Blahaj has to get the flag only accessible by the administrator. But Blahaj cannot even type with his flippers, help him pass!
-
 **Disclaimer: We did not solve the challenge but we were like 3 micrometers away from solving it**
+
+> As part of Halogen's cybersecurity exam, Blahaj has to get the flag only accessible by the administrator. But Blahaj cannot even type with his flippers, help him pass!
 
 This is another XSS Challenge where you send a message and the admin bot reads the message and sets a header that contains the admin jwt, which can be used to access `/flag`:
 

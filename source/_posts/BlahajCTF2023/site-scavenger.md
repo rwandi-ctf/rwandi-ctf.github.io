@@ -6,6 +6,8 @@ tags:
 categories: BlahajCTF 2023
 ---
 
+solved by {% person hartmannsyg %}
+
 > After making a website on my favourite stuffed toy, the Blahaj, I made a flag and hid it somewhere on the website. But now I cannot find it! Please help me get my flag again 😢
 
 This is a Flag Hunt challenge, with the flag split into multiple parts.

@@ -7,6 +7,8 @@ tags:
 categories: BlahajCTF 2023
 ---
 
+solved by {% person tomato %}, {% person fs %}
+
 > Now that I'm not using C or Python, my printwriter will be finally safe!
 
 There is a Server-Side Template Injection vulnerability in the message field of the Printwriter. For example, this template:

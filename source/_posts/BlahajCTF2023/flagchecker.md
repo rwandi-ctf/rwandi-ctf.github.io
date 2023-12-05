@@ -6,6 +6,8 @@ tags:
 categories: BlahajCTF 2023
 ---
 
+solved by {% person hartmannsyg %}
+
 > CTFd is overrated. My flag checker is both fast and secure!
 
 We are given a binary that checks for a flag. Thankfully when we shove it to ghidra it is quite apparent what the flag is:

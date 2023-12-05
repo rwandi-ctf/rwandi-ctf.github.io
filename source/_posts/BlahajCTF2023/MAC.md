@@ -4,6 +4,9 @@ date: 2023-12-05
 tags: crypto
 categories: BlahajCTF 2023
 ---
+
+solved by {% person tomato %}
+
 > mom can we have MAC? no there is MAC at blahajctf MAC at blahajctf:
 
 {% ccb caption:mac.py 

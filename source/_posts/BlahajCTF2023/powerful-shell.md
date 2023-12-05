@@ -5,6 +5,8 @@ tags: rev
 categories: BlahajCTF 2023
 ---
 
+solved by {% person treeindustry %}, {% person hartmannsyg %}, {% person tomato %}
+
 > My friend ran some weird commands he found online to try and install some elite cheats and ended up getting his files encrypted! Help recover his encrypted file 😭
 
 In the files we are given in both the `console.log` and `powerful.ps1`, we see this command being run in powershell:

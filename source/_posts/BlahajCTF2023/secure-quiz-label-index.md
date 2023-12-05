@@ -6,6 +6,8 @@ tags:
 categories: BlahajCTF 2023
 ---
 
+solved by {% person hartmannsyg %}
+
 > Halogen has just released all the questions to the next CyberSecurity test. Blahaj wants to score full marks, and believes the answers and bonus questions are listed somewhere on the site. Help Blahaj get the answers and score full marks on this quiz!
 
 From just a little testing (or just reading the source code provided), we see that our "search" gets injected into a SQL query:

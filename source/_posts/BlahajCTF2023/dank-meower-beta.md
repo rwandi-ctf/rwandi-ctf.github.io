@@ -5,6 +5,8 @@ tags: pwn
 categories: BlahajCTF 2023
 ---
 
+solved by {% person hartmannsyg %}
+
 > I want to make a discord bot but I don't know how to use discord.py, so I made a prototype in C.
 
 > Pst! I heard you were looking to get some flags from that flag shop over there, but they were out of stock. Luckily, I think I can help you with that... I've attached the source code of the shop [here](https://gist.github.com/azazazo/de242e67acada5e16be7c3b0745b5525), and you can download the binary [here](https://github.com/azazazo/blahajctf-files/raw/main/dank%20meower%20beta/guide). Contact me at `nc 188.166.197.31 30003` if you're still keen...

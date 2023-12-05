@@ -5,6 +5,8 @@ tags: pwn
 categories: BlahajCTF 2023
 ---
 
+solved by {% person fs %}
+
 > **"**I've been playing around with this reporting system for "cyber affairs", generating ticket after ticket in hopes of breaking it. I have a feeling that there's a way to access the admin panel...**"**
 
 ## Overview

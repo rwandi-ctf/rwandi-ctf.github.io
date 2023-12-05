@@ -6,6 +6,8 @@ tags:
 categories: BlahajCTF 2023
 ---
 
+solved by {% person tomato %}
+
 > I'm not very good at C, so I coded this challenge in Python. Don't have Python 3 yet though, so I used Python 2... At least it can't be pwned!
 
 I first noticed that there is some template injection (? because like we aren't using any templates here, idk what to call it):

@@ -6,6 +6,8 @@ tags:
 categories: BlahajCTF 2023
 ---
 
+solved by {% person hartmannsyg %}
+
 > Guess blahaj's favourite website and he will give you the flag!
 
 We are given the website and the source code. Looking into the source code, we see that it visits a site and adds a cookie, and that we are supposed to steal the cookie:

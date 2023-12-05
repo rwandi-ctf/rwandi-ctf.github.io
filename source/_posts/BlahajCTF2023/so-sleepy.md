@@ -6,6 +6,8 @@ tags:
 categories: BlahajCTF 2023
 ---
 
+solved by {% person hartmannsyg %}
+
 > I'm just an eepy fella who managed to get hold of a new Ebic Games release, but I don't have the activation key... help a fellow gamer out... I just wanna play my video games... zzz zzz honk shoo mimimi...
 
 **Note: A far easier solution would be to [use z3/angr for this](https://discord.com/channels/1056136438011416646/1180433481570979851/1181132313451573258)**

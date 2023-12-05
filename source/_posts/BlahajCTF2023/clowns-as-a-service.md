@@ -8,6 +8,8 @@ tags:
 categories: BlahajCTF 2023
 ---
 
+solved by {% person hartmannsyg %}, {% person fs %}
+
 > PHP has some inner clown magic like juggling. Can you juggle your way to get the flag?
 
 We are given some source code:
