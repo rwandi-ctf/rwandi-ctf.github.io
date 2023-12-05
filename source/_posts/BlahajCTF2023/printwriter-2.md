@@ -17,7 +17,7 @@ Gives us the result of `aaaaa`
 
 ## Find `Popen`
 
-This allows us to do nearly the exact same exploit as Printwriter -1. We first get all the subclasses with: `''.__class__.__mro__[1].__subclasses__()`:
+This allows us to do an exploit similar to [Printwriter -1](/2023/12/05/BlahajCTF2023/printwriter-1/). We first get all the subclasses with: `''.__class__.__mro__[1].__subclasses__()`:
 
 ![template injection of ''.__class__.__mro__[1].__subclasses__() in the message field](/static/BlahajCTF2023/Printwriter2_2.png)
 
