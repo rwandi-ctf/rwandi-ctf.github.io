@@ -30,22 +30,16 @@ We then run small segments of code then look at the memory to see the result
 
 First we figure out what the commands in brainfuck are:
 
-
->	increment pointer
-
-<	decrement pointer
-
-+	increment value at pointer
-
--	decrement value at pointer
-
-[	begin loop (continues while value at pointer is non-zero)
-
-]	end loop
-
-,	read one character from input into value at pointer
-
-.	print value at pointer to output as a character
+|  Command   |        Description     |
+| --- | ----------- |
+| \> |	increment pointer |
+| \< | 	decrement pointer |
+| \+ |	increment value at pointer |
+| \- |	decrement value at pointer |
+| \[ |	begin loop (continues while value at pointer is non-zero) |
+| \] |	end loop|
+| \, |	read one character from input into value at pointer |
+| \. |	print value at pointer to output as a character |
 
 
 Some of the long chains of < or > are hard to read, so we made a python script to, instead, show the current pointer as p`  ` before every operation:
