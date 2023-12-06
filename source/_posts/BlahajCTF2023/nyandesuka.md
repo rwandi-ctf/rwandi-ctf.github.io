@@ -108,7 +108,7 @@ The passcode is `119080067119`
 
 ![TTY is wPCw](/static/BlahajCTF2023/nyan_6.PNG)
 
-{% ccb caption:Untitled url:'https://pastebin.com/3iE7wPCw' url_text:'Source' wrapped:true scrollable:true %}
+{% ccb caption:Untitled url:'https://pastebin.com/3iE7wPCw' url_text:'Source' wrapped:true %}
  
 WOW! good job making it this far, seriously. ~ scuffed 
  
