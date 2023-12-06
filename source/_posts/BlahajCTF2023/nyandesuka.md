@@ -117,4 +117,4 @@ blahaj{1ch1_n1_54n_ny4!_4r16470}
 
 `blahaj{1ch1_n1_54n_ny4!_4r16470}`
 
-[Leat`eq - Tokyo](https://youtu.be/XlrWmtUdoOk)
+[Leat\'eq - Tokyo](https://youtu.be/XlrWmtUdoOk)
