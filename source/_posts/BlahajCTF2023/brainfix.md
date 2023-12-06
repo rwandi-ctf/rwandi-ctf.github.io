@@ -106,7 +106,7 @@ Also, from some random testing, if we input `b`, which is the first letter of `b
 
 The first letter of the flag is the second letter of the alphabet, how convenient
 
-#Getting the flag
+# Getting the flag
 
 So it seems that when our input is correct, cell 51 will have a value of 0. Now we take the segment of code before the loop that creates `Wrong!` and run it with no input.
 
