@@ -18,7 +18,7 @@ solved by {% person treeindustry %}
 
 This appears to be brainfuck code, and it is also way too long to read manually. When the program is run, it just outputs `Wrong!`
 
-#Overview
+# Overview
 
 Find some patterns in the code, that can mark significant segments (most of the program has to be icing, right?)
 
@@ -26,7 +26,7 @@ We then run small segments of code then look at the memory to see the result
 
 [This interpreter](https://copy.sh/brainfuck/) was used
 
-#Reading code
+# Reading code
 
 First we figure out what the commands in brainfuck are:
 
@@ -96,7 +96,7 @@ Upon looking closer, we realize that there are many such segments in the code. S
 
 Output:
 
-![Wrong! is in the memory](/static/BlahajCTF2023/brainfix_1.png)
+![Wrong! is in the memory](/static/BlahajCTF2023/brainfix_1.PNG)
 
 We see that the characters in `Wrong!` are contained in cells 56-61.
 
@@ -131,7 +131,7 @@ print(counter)
 
 After actually running the code:
 
-![b is in the memory](/static/BlahajCTF2023/brainfix_2.png)
+![b is in the memory](/static/BlahajCTF2023/brainfix_2.PNG)
 
 Unfortunately, cell 51 is simply `1`, but fortunately, the challenge setter was kind enough to leave the character we need, `b` in cell 3.
 
