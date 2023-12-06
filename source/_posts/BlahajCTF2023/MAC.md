@@ -196,7 +196,7 @@ Now, we can do xors on numbers by instead subtracting (or adding) their polynomi
 (x^2 + x) + (x + 1) = (x^2 + 1)
 {% endkatex %}
 
-under GF(2^3). {%katex%}x^2+1{%endkatex%} has binary representation 101 which is 5, so {%katex%}6 \oplus 3=5{%endkatex%}
+under GF(2^3). {%katex%}x^2+1{%endkatex%} has coefficients 1, 0, 1 which would be binary of 5, so {%katex%}6 \oplus 3=5{%endkatex%}.
 
 With this, we can now actually do long division.
 
@@ -214,6 +214,8 @@ gives `2379082471`, and now implementing the polynomial version in sage:
 R.<x> = PolynomialRing(GF(2),'x')
 def num2poly(num):
     return sum(int(j)*x^i for i,j in enumerate(bin(num)[2:][::-1]))
+def poly2num(poly):
+    return int("".join(map(str,poly.list()[::-1])),2)
 a = num2poly(b2l(b"test")) * x^32
 b = num2poly(1209359071) + x^32
 poly2num(a.quo_rem(b)[1])
@@ -221,7 +223,7 @@ poly2num(a.quo_rem(b)[1])
 
 also gives `2379082471`. GG!
 
-## crt
+### crt
 
 Now, how to use this to get the flag? What this essentially means, is that if we call the flag polynomial {%katex%}f(x){%endkatex%}, we have a bunch of pairs of a polynomial {%katex%}a(x){%endkatex%} and the remainder leftover when dividing {%katex%}f(x){%endkatex%} by {%katex%}a(x){%endkatex%}. A bunch of divisors and their corresponding remainders, sound familiar? 
 
@@ -242,9 +244,11 @@ But, can CRT be applied to polynomials? Searching it up, the Extended Euclidean 
 So, now we just implement everything together by:
 
 1. Query "Test MAC" 624 times (at least) to receive enough keys to predict all future keys
-2. Query "Get flag" 100 times to receive enough flag MACs in order to recover the flag with CRT.
+2. Query "Get flag" 100 times to receive enough flag MACs in order to recover the flag with CRT
+3. Predict the keys used in making the flag MACs using [randcrack](https://github.com/tna0y/Python-random-module-cracker)
+4. Apply polynomial CRT to recover the flag
 
-### Full sage implementation:
+## Full sage implementation
 
 ```py
 from Crypto.Util.number import long_to_bytes as l2b, bytes_to_long as b2l
@@ -285,8 +289,8 @@ def poly2num(poly):
     return int("".join(map(str,poly.list()[::-1])),2)
 num2poly(b2l(b"test"))
 
-bine = crt([num2poly(i) for i in rec4], [num2poly(i)+x^32 for i in keys]).list()[::-1]
-l2b(int("".join(map(str, bine)),2)>>32)
+flagpoly = crt([num2poly(i) for i in rec4], [num2poly(i)+x^32 for i in keys])>>32
+l2b(poly2num(flagpoly))
 ```
 
 giving the flag `blahaj{cRc_m0RE_l1ke_Cr7}`
