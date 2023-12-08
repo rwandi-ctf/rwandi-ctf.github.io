@@ -78,7 +78,18 @@ What is your fav_plush?
 
 Just how many layers do you want this third part to be????
 
-Anyways after fiddling with url parameters, Headers, and json, I submited a `x-www-form-urlencoded` with `fav_plush: blahaj` and I got the flag:
+Anyways after fiddling with url parameters, Headers, and json, I submited a `x-www-form-urlencoded` (default) with `fav_plush: blahaj`:
+
+```py
+import requests
+
+url = 'http://188.166.197.31:30015/sup3r-s3cr3t'
+
+x = requests.post(url, data = {'fav_plush':'blahaj'})
+print(x.text)
+```
+
+and I got the flag:
 
 ```html
             Welcome back, here is the 3rd part of the flag.<br>
