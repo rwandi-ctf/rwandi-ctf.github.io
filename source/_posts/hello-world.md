@@ -73,6 +73,11 @@ helloWorld();
 const rick = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 {% endccb %}
 
+{% ccb html:true %}
+you can also <span class='highlight-segment-code'>highlight certain segments</span> of code by manually using html
+{% endccb %}
+
+
 ## Pasting (colored) stuff from terminal
 
 the easiest way is to embed html into the md file like so:
