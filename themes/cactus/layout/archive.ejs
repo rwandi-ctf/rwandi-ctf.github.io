@@ -7,11 +7,15 @@
       <% var itemYear = date(post[field_sort], 'YYYY') %>
       <% change = year !== itemYear %>
       <% year = change ? itemYear : year %>
+      <% category = post.categories.data[0]?.name %>
       <% if (change) { %>
         <li class="post-year"><h2><%= year %></h2></li>
       <% } %>
       <li class="post-item">
         <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
+        <% if (category) { %>
+          <span><%= category + '/' %></span>
+        <% } %>
         <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
       </li>
     <% }); %>
