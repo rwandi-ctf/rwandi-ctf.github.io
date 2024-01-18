@@ -20,6 +20,10 @@ const people = {
     treeindustry: {
         image: "https://cdn.discordapp.com/avatars/637581035227447296/84fe734b031efc508797991d7642d295.png",
         link: "https://github.com/theredstone496"
+    },
+    squiddy: {
+        iamge: "https://cdn.discordapp.com/avatars/412969691276115968/1f31f1a29a6334d32dea12924d059416.png",
+        link: "https://github.com/squi-ddy"
     }
 }
 
