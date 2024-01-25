@@ -118,15 +118,12 @@ c = \pm\sqrt{a^2 + b^2}
 \frac{1}{x^2-1}
 {% endmathjax %}
 
-## Home page
-
-honestly rn I think the home page is fine but if we ever wanna change it:
-
-```bash
-$ npm remove hexo-generator-index
+wait you can just do 
+```tex
+$\frac{1}{x^2-1}$
 ```
 
-Then we create a `source/index.md` file
+$\frac{1}{x^2-1}$
 
 ## People
 
