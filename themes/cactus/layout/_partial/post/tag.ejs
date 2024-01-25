@@ -1,6 +1,10 @@
 <% if (page.tags && page.tags.length) { %>
     <div class="article-tag">
         <i class="fa-solid fa-tag"></i>
-        <%- list_tags(page.tags, { show_count: false, style: 'link', class: {a: 'p-category' }}) %>
+        <% let arr = page.tags.data.filter((tag) => !tag.name.startsWith("author-")); %>
+        <% arr.data = arr %>
+        <% arr.toArray = ()=>{return arr} %>
+        <% arr.sort = ()=>{ return arr } // we remove the sorting %>
+        <%- list_tags(arr, { show_count: false, style: 'link', class: {a: 'p-category' }}) %>
     </div>
 <% } %>
