@@ -1,7 +1,9 @@
 ---
 title: Be fast
 date: 2024-01-23
-tags: crypto
+tags: 
+- crypto
+- author-tomato
 categories: MapnaCTF 2024
 ---
 

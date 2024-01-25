@@ -118,10 +118,7 @@ c = \pm\sqrt{a^2 + b^2}
 \frac{1}{x^2-1}
 {% endmathjax %}
 
-wait you can just do 
-```tex
-$\frac{1}{x^2-1}$
-```
+wait you can just use $$: 
 
 $\frac{1}{x^2-1}$
 
@@ -130,3 +127,13 @@ $\frac{1}{x^2-1}$
 inline people like {% person treeindustry %} {% person foo %} {% person tomato %} {% person hartmannsyg %} {% person fs %}
 
 add people by editing `themes/cactus/scripts/person.js`
+
+### Authoring
+
+
+simply do `author-<name>` like so for tags, all tags that start with `author-` get hidden through some black magic at `themes/cactus/layout/_partial/post/tag.ejs`
+```
+tags: 
+- web
+- author-hartmannsyg
+```

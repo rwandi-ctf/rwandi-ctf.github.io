@@ -4,6 +4,8 @@ date: 2023-12-05
 tags:
 - web
 - SSTI
+- author-tomato
+- author-fs
 categories: BlahajCTF 2023
 ---
 

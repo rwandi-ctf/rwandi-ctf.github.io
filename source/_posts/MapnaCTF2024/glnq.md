@@ -1,7 +1,9 @@
 ---
 title: GLNQ
 date: 2024-01-24
-tags: crypto
+tags: 
+- crypto
+- author-tomato
 categories: MapnaCTF 2024
 ---
 

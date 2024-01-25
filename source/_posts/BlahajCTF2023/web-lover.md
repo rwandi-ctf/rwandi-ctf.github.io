@@ -3,6 +3,7 @@ title: Web Lover
 date: 2023-12-05
 tags:
 - web
+- author-hartmannsyg
 categories: BlahajCTF 2023
 ---
 

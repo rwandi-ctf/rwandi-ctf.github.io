@@ -1,7 +1,9 @@
 ---
 title: Dank Meower Beta
 date: 2023-12-03
-tags: pwn
+tags: 
+- pwn
+- author-hartmannsyg
 categories: BlahajCTF 2023
 ---
 

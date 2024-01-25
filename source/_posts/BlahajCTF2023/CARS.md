@@ -1,7 +1,9 @@
 ---
 title: CARS
 date: 2023-12-05
-tags: pwn
+tags: 
+- pwn
+- author-fs
 categories: BlahajCTF 2023
 ---
 

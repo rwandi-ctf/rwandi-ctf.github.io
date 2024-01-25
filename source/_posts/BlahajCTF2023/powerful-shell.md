@@ -1,7 +1,11 @@
 ---
 title: Powerful Shell
 date: 2023-12-03
-tags: rev
+tags: 
+- rev
+- author-treeindustry
+- author-hartmannsyg
+- author-tomato
 categories: BlahajCTF 2023
 ---
 

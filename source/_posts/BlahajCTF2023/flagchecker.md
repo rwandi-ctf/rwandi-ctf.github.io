@@ -3,6 +3,7 @@ title: flagchecker
 date: 2023-12-05
 tags:
 - rev
+- author-hartmannsyg
 categories: BlahajCTF 2023
 ---
 

@@ -1,7 +1,9 @@
 ---
 title: MapnaCTF 2024 web challenges
 date: 2024-01-21
-tags: web
+tags: 
+- web
+- author-hartmannsyg
 categories: MapnaCTF 2024
 ---
 

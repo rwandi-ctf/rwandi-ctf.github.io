@@ -5,6 +5,8 @@ tags:
 - web
 - type juggling
 - php
+- author-hartmannsyg
+- author-fs
 categories: BlahajCTF 2023
 ---
 

@@ -1,7 +1,9 @@
 ---
 title: MAC
 date: 2023-12-05
-tags: crypto
+tags: 
+- crypto
+- author-tomato
 categories: BlahajCTF 2023
 ---
 

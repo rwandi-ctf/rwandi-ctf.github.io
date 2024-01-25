@@ -4,6 +4,7 @@ date: 2023-12-05
 tags:
 - web
 - xss
+- author-hartmannsyg
 categories: BlahajCTF 2023
 ---
 

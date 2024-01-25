@@ -1,7 +1,9 @@
 ---
 title: LameNote
 date: 2024-01-08
-tags: web
+tags: 
+- web
+- author-hartmannsyg
 categories: IrisCTF 2024
 ---
 
