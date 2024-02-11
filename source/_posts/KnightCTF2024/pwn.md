@@ -1,6 +1,6 @@
 ---
 title: KnightCTF pwn
-date: 2024-02-06
+date: 2024-02-12
 tags: 
 - pwn
 - author-foo
