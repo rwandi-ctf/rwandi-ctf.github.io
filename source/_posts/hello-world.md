@@ -74,7 +74,7 @@ const rick = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 {% endccb %}
 
 {% ccb html:true %}
-you can also <span class='highlight-segment-code'>highlight certain segments</span> of code by manually using html
+you can also <span class='code-segment-highlight'>highlight certain segments</span> of code by manually using html
 {% endccb %}
 
 
