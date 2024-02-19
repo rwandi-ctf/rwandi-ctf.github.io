@@ -8,6 +8,8 @@ tags:
 categories: LACTF 2024
 ---
 
+solved by {% person hartmannsyg %}
+
 This is a pong game against a "perfect" AI.
 
 I originally though of trying to get the ball velocity to be very high but the code more or less restricts that from happening. Instead, we had to make the ball *position* `NaN`
@@ -46,6 +48,16 @@ We have to fail both the `ball[0] < 0 ` and `ball[0] < 100` check. But since we 
 {% ccb lang:js %}
 NaN < 0 == False
 NaN < 100 == False
+{% endccb %}
+
+Another thing about NaN is that any mathematical operations on NaN gives NaN:
+
+{% ccb lang:js %}
+NaN + 1 = NaN
+NaN - 1 = NaN
+NaN * 2 = NaN
+NaN / 2 = NaN
+NaN ** 2 = NaN
 {% endccb %}
 
 We see how we can modify ball[0] such that it becomes NaN

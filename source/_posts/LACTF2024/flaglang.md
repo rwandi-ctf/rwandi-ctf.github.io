@@ -7,6 +7,8 @@ tags:
 categories: LACTF 2024
 ---
 
+solved by {% person hartmannsyg %}
+
 When we try to select Flagistan (which contains the flag we want as the message):
 
 ![](./static/LACTF2024/flaglang-0.png)

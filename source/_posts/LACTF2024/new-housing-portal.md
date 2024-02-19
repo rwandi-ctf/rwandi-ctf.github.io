@@ -8,6 +8,8 @@ tags:
 categories: LACTF 2024
 ---
 
+solved by {% person hartmannsyg %}
+
 I'm too lazy to illustrate this, but the username and name field of accounts are vulnerable to xss. Raw html is reflected via the "view invitations" page.
 
 So, if we can get the admin bot to visit our page, we can trigger an xss that lets the admin send a request to us.

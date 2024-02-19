@@ -8,6 +8,8 @@ tags:
 categories: LACTF 2024
 ---
 
+solved by {% person hartmannsyg %}
+
 We see an SQL injection vulnerability here:
 
 {% ccb caption:app.py gutter1:10-41 lang:py highlight:12,30 %}

@@ -7,6 +7,8 @@ tags:
 categories: LACTF 2024
 ---
 
+solved by {% person hartmannsyg %}
+
 We have an "I Accept" button that we need to click, but it keeps running away from our cursor
 
 ![](./static/LACTF2024/terms-and-conditions-0.png)
