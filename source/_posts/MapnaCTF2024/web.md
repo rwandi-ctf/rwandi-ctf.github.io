@@ -3,6 +3,7 @@ title: MapnaCTF 2024 web challenges
 date: 2024-01-21
 tags: 
 - web
+- lfi
 - author-hartmannsyg
 categories: MapnaCTF 2024
 ---

@@ -1,7 +1,10 @@
 ---
 title: Brainfix
 date: 2023-12-06
-tags: rev
+tags: 
+- rev
+- brainfuck
+- author-treeindustry
 categories: BlahajCTF 2023
 ---
 

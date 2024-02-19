@@ -3,6 +3,7 @@ title: another-csp
 date: 2024-02-05
 tags: 
 - web
+- csp
 - author-hartmannsyg
 categories: DiceCTF 2024
 ---

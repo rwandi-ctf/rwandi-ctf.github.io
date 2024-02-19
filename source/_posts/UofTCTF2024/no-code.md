@@ -3,6 +3,7 @@ title: No Code
 date: 2024-01-16
 tags: 
 - web
+- regex
 - author-hartmannsyg
 categories: UofTCTF 2024
 ---

@@ -1,6 +1,6 @@
 ---
 title: terms-and-conditions
-date: 2024-02-19
+date: 2024-02-19 08:00
 tags: 
 - web
 - author-hartmannsyg
@@ -37,4 +37,4 @@ Now if we click the button using javascript (by typing this in the console):
 document.getElementById('accept').click()
 {% endccb %}
 
-We get an alert popup that says `lactf{that_button_was_definitely_not_one_of_the_terms}`
+We get an alert popup that says `lactf{that_button_was_definitely_not_one_of_the_terms}`    
