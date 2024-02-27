@@ -7,6 +7,8 @@ tags:
 categories: HACK@AC 2024
 ---
 
+written by {% person hartmannsyg %}
+
 We are given a binary `./doormat` and a `libc-2.27.so`.
 
 {% ccb terminal:true html:true %}
