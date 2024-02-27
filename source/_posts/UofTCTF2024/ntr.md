@@ -16,9 +16,9 @@ written by {% person hartmannsyg %}
 We are given a binary and a libc.
 
 {% ccb html:true terminal:true %}
-<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
+<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN><SPAN STYLE="color:#DCDFE4;"> checksec ntr
-[</SPAN><SPAN STYLE="color:#61AFEF;">*</SPAN><SPAN STYLE="color:#DCDFE4;">] '/home/suwandi/ctf/uoft/ntr'
+[</SPAN><SPAN STYLE="color:#61AFEF;">*</SPAN><SPAN STYLE="color:#DCDFE4;">] '/home/rwandi/ctf/uoft/ntr'
     Arch:     amd64-64-little
     RELRO:    </SPAN><SPAN STYLE="color:#E5C07B;">Partial RELRO
 </SPAN><SPAN STYLE="color:#DCDFE4;">    Stack:    </SPAN><SPAN STYLE="color:#E06C75;">No canary found
@@ -47,7 +47,7 @@ else:
 </details>
 
 {% ccb html:true terminal:true %}
-<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
+<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN><SPAN STYLE="color:#DCDFE4;"> ./ntr_remotelibc
 printf is at 0x7f318b125250
 Hello give me an input
@@ -105,7 +105,7 @@ We essentially have a **buffer overflow** as we can input more than the buffer c
 - The binary is too small so we need to use gadgets within the libc provided
 
 {% ccb terminal:true html:true %}
-<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
+<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN><SPAN STYLE="color:#DCDFE4;"> ROPgadget --binary ./libc.so.6 | grep 'pop rdi ; ret'
 0x00000000000a1457 : inc dword ptr [rbp + 0x158d48c0] ; </SPAN><SPAN STYLE="color:#E06C75;">pop rdi ; ret</SPAN><SPAN STYLE="color:#DCDFE4;">f 0xc
 0x0000000000028265 : </SPAN><SPAN STYLE="color:#E06C75;">pop rdi ; ret
@@ -124,7 +124,7 @@ We need to know if system() is in the libc:
 {% ccb terminal:true html:true %}
 <span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> pwn <span class="keyword">import</span> *
 <span class="meta">&gt;&gt;&gt; </span>libc = ELF(<span class="string">'./libc.so.6'</span>)
-[</SPAN><SPAN STYLE="color:#61AFEF;">*</SPAN><SPAN STYLE="color:#DCDFE4;">] '/home/suwandi/ctf/uoft/libc.so.6'
+[</SPAN><SPAN STYLE="color:#61AFEF;">*</SPAN><SPAN STYLE="color:#DCDFE4;">] '/home/rwandi/ctf/uoft/libc.so.6'
     Arch:     amd64-64-little
     RELRO:    </SPAN><SPAN STYLE="color:#98C379;">Full RELRO
 </SPAN><SPAN STYLE="color:#DCDFE4;">    Stack:    </SPAN><SPAN STYLE="color:#98C379;">Canary found
@@ -147,7 +147,7 @@ Yep, there is a "/bin/sh" in the libc
 3. "pop rdi; ret" gadget so that we can input that string into
 
 {% ccb terminal:true html:true highlight:4 %}
-<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
+<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN><SPAN STYLE="color:#DCDFE4;"> ROPgadget --binary ./libc.so.6 | grep 'pop rdi ; ret'
 0x00000000000a1457 : inc dword ptr [rbp + 0x158d48c0] ; </SPAN><SPAN STYLE="color:#E06C75;">pop rdi ; ret</SPAN><SPAN STYLE="color:#DCDFE4;">f 0xc
 0x0000000000028265 : </SPAN><SPAN STYLE="color:#E06C75;">pop rdi ; ret
@@ -189,7 +189,7 @@ p.interactive()
 {% ccb terminal:true html:true highlight:9 %}
 <SPAN STYLE="color:#DCDFE4;">Program received signal SIGSEGV, Segmentation fault.
 </SPAN><SPAN STYLE="color:#61AFEF;">0x00007f1f1063a44b </SPAN><SPAN STYLE="color:#DCDFE4;">in </SPAN><SPAN STYLE="color:#E5C07B;">?? </SPAN><SPAN STYLE="color:#DCDFE4;">()
-   from </SPAN><SPAN STYLE="color:#98C379;">target:/home/suwandi/.cache/.pwntools-cache-3.11/libcdb_libs/316d0d3666387f0e8f
+   from </SPAN><SPAN STYLE="color:#98C379;">target:/home/rwandi/.cache/.pwntools-cache-3.11/libcdb_libs/316d0d3666387f0e8f
 b98773f51aa1801027c5ab/libc.so.6
 </SPAN><SPAN STYLE="color:#DCDFE4;">LEGEND: </SPAN><SPAN STYLE="color:#E5C07B;">STACK </SPAN><SPAN STYLE="color:#DCDFE4;">| </SPAN><SPAN STYLE="color:#61AFEF;">HEAP </SPAN><SPAN STYLE="color:#DCDFE4;">| </SPAN><SPAN STYLE="color:#E06C75;">CODE </SPAN><SPAN STYLE="color:#DCDFE4;">| </SPAN><SPAN STYLE="color:#C678DD;">DATA </SPAN><SPAN STYLE="color:#DCDFE4;">| RWX | RODATA
 </SPAN><SPAN STYLE="color:#61AFEF;">────────────────[ REGISTERS / show-flags off / show-compact-regs off ]─────────────────
@@ -220,7 +220,7 @@ troy</SPAN><SPAN STYLE="color:#DCDFE4;">&gt;
 We have a movaps stack alignment issue. To fix this, we have to find a ret gadget:
 
 {% ccb terminal:true html:true %}
-<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
+<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/uoft</SPAN><SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN><SPAN STYLE="color:#DCDFE4;"> ROPgadget --binary ./libc.so.6 | grep ": ret$"
 0x000000000002648d </SPAN><SPAN STYLE="color:#E06C75;">: ret</SPAN>
 {% endccb %}
