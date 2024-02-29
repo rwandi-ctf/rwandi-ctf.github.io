@@ -3,6 +3,7 @@ title: LameNote
 date: 2024-01-08
 tags: 
 - web
+- xs-leak
 - author-hartmannsyg
 categories: IrisCTF 2024
 ---

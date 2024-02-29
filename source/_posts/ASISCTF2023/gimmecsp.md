@@ -3,6 +3,7 @@ title: gimme csp
 date: 2024-01-08
 tags: 
 - web
+- csp
 - author-hartmannsyg
 categories: ASISCTF 2023
 ---

@@ -1,12 +1,14 @@
 ---
 title: la housing portal
-date: 2024-02-19
+date: 2024-02-19 08:02
 tags: 
 - web
 - sqli
 - author-hartmannsyg
 categories: LACTF 2024
 ---
+
+solved by {% person hartmannsyg %}
 
 We see an SQL injection vulnerability here:
 

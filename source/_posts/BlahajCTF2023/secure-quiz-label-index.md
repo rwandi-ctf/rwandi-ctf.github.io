@@ -3,6 +3,7 @@ title: Secure Quiz Label Index
 date: 2023-12-05
 tags:
 - web
+- sqli
 - author-hartmannsyg
 categories: BlahajCTF 2023
 ---

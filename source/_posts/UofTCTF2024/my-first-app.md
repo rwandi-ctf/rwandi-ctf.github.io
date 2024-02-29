@@ -3,6 +3,8 @@ title: My First App
 date: 2024-01-16
 tags: 
 - web
+- jwt
+- ssti
 - author-hartmannsyg
 categories: UofTCTF 2024
 ---

@@ -3,6 +3,7 @@ title: The Varsity
 date: 2024-01-16
 tags: 
 - web
+- js
 - author-hartmannsyg
 categories: UofTCTF 2024
 ---

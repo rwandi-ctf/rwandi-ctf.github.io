@@ -8,7 +8,7 @@ const people = {
         image: "https://cdn.discordapp.com/avatars/345425473213562900/df6e21c85383702b7ca78035bcc1d648.png",
     },
     hartmannsyg: {
-        image: "https://cdn.discordapp.com/avatars/1154815737341419530/aef375fa106b8c556ffd0aaa79d7ac5d.png",
+        image: "https://cdn.discordapp.com/avatars/1154815737341419530/642de2cc83c049d7aa44a1ebb4b43331.png",
     },
     fs: {
         image: "https://cdn.discordapp.com/avatars/933347118402392085/8fe2122c336a05b67a364ef95569685c.png",

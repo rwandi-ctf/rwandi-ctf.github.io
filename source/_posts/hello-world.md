@@ -92,6 +92,15 @@ Then when you copy the thing, you have to somehow get the html instead of the ra
 ```js
 document.addEventListener('paste', function(e) {
   var html = e.clipboardData.getData('text/html');
+  html = html.replaceAll(/<.?html>/gi,'')
+  html = html.replaceAll(/<.?head>/gi,'')
+  html = html.replaceAll(/<.?body>/gi,'')
+  html = html.replaceAll('<BR>','\n')
+  html = html.replaceAll('<!--StartFragment -->','')
+  html = html.replaceAll('<!--EndFragment -->','')
+  html = html.replaceAll(/<div style=".+?;">/gi,'')
+  html = html.replaceAll('</DIV>','')
+  html = html.replaceAll(/background-color:#.+?;/gi,'')
   console.log(html)
 })
 ```

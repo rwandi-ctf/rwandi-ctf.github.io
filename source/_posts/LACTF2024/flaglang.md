@@ -1,11 +1,13 @@
 ---
 title: flaglang
-date: 2024-02-19
+date: 2024-02-19 08:01
 tags: 
 - web
 - author-hartmannsyg
 categories: LACTF 2024
 ---
+
+solved by {% person hartmannsyg %}
 
 When we try to select Flagistan (which contains the flag we want as the message):
 
