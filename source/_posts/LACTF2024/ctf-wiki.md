@@ -71,8 +71,11 @@ If we *edit* the opened window document:
 
 
 We get
-{% ccb terminal:true wrapped:true %}
-Refused to execute inline script because it violates the following Content Security Policy directive: "default-src 'self'". Either the 'unsafe-inline' keyword, a hash ('sha256-74J0XhNNZyeyG2hc6SR5UoGLY+N1BT22Dw9QC4ZeN/Y='), or a nonce ('nonce-...') is required to enable inline execution. Note also that 'script-src' was not explicitly set, so 'default-src' is used as a fallback.
+{% ccb terminal:true wrapped:true html:true %}
+<span style='color:#E06C75;'>Refused to execute inline script because it violates the following Content Security Policy directive: "default-src 'self'". Either the 'unsafe-inline' keyword, a hash ('sha256-74J0XhNNZyeyG2hc6SR5UoGLY+N1BT22Dw9QC4ZeN/Y='), or a nonce ('nonce-...') is required to enable inline execution. Note also that 'script-src' was not explicitly set, so 'default-src' is used as a fallback.
+</span>
+
+
 {% endccb %}
 
 So in order to send a POST request without scripts, we use a form and submit it.
