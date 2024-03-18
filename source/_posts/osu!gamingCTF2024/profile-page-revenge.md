@@ -8,7 +8,7 @@ tags:
 - polyglot
 - error
 - xss
-- cookie
+- cookies
 - author-hartmannsyg
 categories: osu!gaming CTF 2024
 ---
