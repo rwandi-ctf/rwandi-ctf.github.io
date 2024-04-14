@@ -5,12 +5,15 @@ tags:
 - pwn
 - heap
 - tcache
+- author-hartmannsyg
 categories: AmateursCTF 2024
 ---
 
+written by {% person hartmannsyg %}
+
+
 > We decided to make our own custom super secure database with absolutely no bugs!
 > `nc chal.amt.rs 1346`
-
 
 We are given a tar file with the binary `chal`, a libc in `lib/libc.so.6` and `lib/ld-linux-x86-64.so.2`
 
