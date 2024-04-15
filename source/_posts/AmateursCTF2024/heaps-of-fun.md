@@ -19,9 +19,9 @@ We are given a tar file with the binary `chal`, a libc in `lib/libc.so.6` and `l
 
 
 {% ccb html:true terminal:true %}
-<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/am/heaps-of-fun</SPAN><SPAN STYLE="color:#98C379;">]
+<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/am/heaps-of-fun</SPAN><SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN><SPAN STYLE="color:#DCDFE4;"> checksec chal
-[</SPAN><SPAN STYLE="color:#61AFEF;">*</SPAN><SPAN STYLE="color:#DCDFE4;">] '/home/suwandi/ctf/am/heaps-of-fun/chal'
+[</SPAN><SPAN STYLE="color:#61AFEF;">*</SPAN><SPAN STYLE="color:#DCDFE4;">] '/home/rwandi/ctf/am/heaps-of-fun/chal'
     Arch:       amd64-64-little
     RELRO:      </SPAN><SPAN STYLE="color:#98C379;">Full RELRO
 </SPAN><SPAN STYLE="color:#DCDFE4;">    Stack:      </SPAN><SPAN STYLE="color:#98C379;">Canary found

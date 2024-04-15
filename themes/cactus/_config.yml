@@ -15,9 +15,9 @@ direction: ltr
 # languages/*.yml
 nav:
   home: /
-  about: /about/
   articles: /archives/
-  projects: http://github.com/rwandi-ctf
+  search: /search/
+  Tags: /tags/
 
 
 # Links to your social media accounts.

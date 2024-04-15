@@ -1,7 +1,18 @@
-CTFTime: https://ctftime.org/team/224317
+- [CTFTime page](https://ctftime.org/team/224317)
+- No we are not actually from rwanda
+- [Every CTF](/categories) we wrote a writeup for
 
-No we are not actually from rwanda
+## Members
 
-### [Writeups](/archives)
+Every squad got the
+- [crypto](/tags/crypto/) guy: {% person tomato %}
 
-### [Members](/about)
+- our lord and savior: {% person treeindustry %}
+ 
+- dying at [web](/tags/web/) guy: {% person hartmannsyg %}
+ 
+- [pwn](/tags/pwn/) procrastinator: {% person foo %}
+ 
+- {% person fs %}
+
+- random [algo](/tags/algo) person: {% person squiddy %}

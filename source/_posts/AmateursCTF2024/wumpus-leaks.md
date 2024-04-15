@@ -21,9 +21,10 @@ We know that the URL of the image is:
 https://cdn.discordapp.com/attachments/1098086661847535719/1226012804150984754/...
 {% endccb %}
 
+This tells us that the `channel_id` is `1098086661847535719` and that the `attachment_id` is `1226012804150984754`.
+
 Of course, visiting this url did *not* give us the image.
 
-This tells us that the `channel_id` is `1098086661847535719` and that the `attachment_id` is `1226012804150984754`.
 
 ## Finding the channel?
 
@@ -35,7 +36,7 @@ However, when we try `<#1098086661847535719>`, the channel id in question:
 
 ![](./static/AmateursCTF2024/wumpus-leaks-1.png)
 
-Perhaps we need to join some secret discord channel, but that does not seem likely since we have nothing hinting towards that. So we probably need to access it from the discord API. 
+Perhaps we need to join access some secret discord channel, perhaps maybe even in a different server, but that does not seem likely since we have nothing hinting towards that. So we probably need to access it from the discord API. 
 
 ## The discord attachment API
 
