@@ -14,3 +14,5 @@ Every squad got the
 - [pwn](/tags/pwn/) procrastinator: {% person foo %}
  
 - {% person fs %}
+
+- random [algo](/tags/algo) person: {% person squiddy %}
