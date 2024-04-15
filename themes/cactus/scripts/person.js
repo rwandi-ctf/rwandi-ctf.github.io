@@ -18,6 +18,9 @@ const people = {
     },
     squiddy: {
         image: "https://cdn.discordapp.com/avatars/412969691276115968/1f31f1a29a6334d32dea12924d059416.png",
+    },
+    rottenlemons : {
+        image: "https://cdn.discordapp.com/avatars/763769697396326432/f107d886d3ca7a1f2a53ff43046180c4.png"
     }
 }
 
