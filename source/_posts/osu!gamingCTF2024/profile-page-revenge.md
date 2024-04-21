@@ -251,6 +251,6 @@ So, when the admin bot visits `/login.html`:
 - `/xss.html` finally opens to `/profile/`, triggering the xss
 - xss script steals the cookies, sets bio to be the cookies
 
-![](../static/osu!gamingCTF2024/profile-page-revenge.png)
+![](.../../static/osu!gamingCTF2024/profile-page-revenge.png)
 
 The flag is `osu{xss_1s_inevitabl3}`

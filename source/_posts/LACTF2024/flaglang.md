@@ -11,7 +11,7 @@ solved by {% person hartmannsyg %}
 
 When we try to select Flagistan (which contains the flag we want as the message):
 
-![](./static/LACTF2024/flaglang-0.png)
+![](../../static/LACTF2024/flaglang-0.png)
 
 We get sent to https://flaglang.chall.lac.tf/switch?to=Flagistan which gives "error: not authenticated for Flagistan".
 

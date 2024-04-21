@@ -29,4 +29,4 @@ our xss payload into the username is:
 
 When that user ^ sends a request to the admin bot and the admin bot receives it, it sends an invite to us (in this case `hartmannsyg02`):
 
-![](./static/LACTF2024/new-housing-portal.png)
+![](../../static/LACTF2024/new-housing-portal.png)

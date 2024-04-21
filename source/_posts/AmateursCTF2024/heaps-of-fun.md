@@ -306,23 +306,23 @@ char *c = malloc(300);
 
 This is implemented via the `fd` and `bk` (forward and backward) pointers in the freed chunks (though for tcache I think only the `fd` pointer is used)
 
-![](./static/AmateursCTF2024/Picture1.png)
+![](../../static/AmateursCTF2024/Picture1.png)
 
 In our case, when we make a new key-value pair (e.g. chunk 0) and delete it (i.e. free them), we get this:
 
-![](./static/AmateursCTF2024/Picture2.png)
+![](../../static/AmateursCTF2024/Picture2.png)
 
 We also notice that if we can write to our old pointers (which in our case are the deleted notes), we can *change fd* to point to **anywhere else we feel like**!
 
-![](./static/AmateursCTF2024/Picture3.png)
+![](../../static/AmateursCTF2024/Picture3.png)
 
 If we call `malloc()`, the program will treat our new location as a freed chunk!
 
-![](./static/AmateursCTF2024/Picture4.png)
+![](../../static/AmateursCTF2024/Picture4.png)
 
 If we call `malloc()` yet again, we now have a pointer to ***any location we want***. And thank to the "edit" functionality of the database, we can ***write whatever we want*** to whatever region we want. This is known as an **<u>arbitrary write</u>**, and it is incredibly powerful.
 
-![](./static/AmateursCTF2024/Picture5.png)
+![](../../static/AmateursCTF2024/Picture5.png)
 
 ### Safe linking
 

@@ -11,11 +11,11 @@ solved by {% person hartmannsyg %}
 
 We have an "I Accept" button that we need to click, but it keeps running away from our cursor
 
-![](./static/LACTF2024/terms-and-conditions-0.png)
+![](../../static/LACTF2024/terms-and-conditions-0.png)
 
 If we open up console, it says "NO CONSOLE ALLOWED"
 
-![](./static/LACTF2024/terms-and-conditions-1.png)
+![](../../static/LACTF2024/terms-and-conditions-1.png)
 
 However, this check is only checking for window resize:
 
@@ -31,7 +31,7 @@ However, this check is only checking for window resize:
 
 It only checks for changes in window size, so if we reload it while console is open we can bypass this check:
 
-![](./static/LACTF2024/terms-and-conditions-2.png)
+![](../../static/LACTF2024/terms-and-conditions-2.png)
 
 Now if we click the button using javascript (by typing this in the console):
 

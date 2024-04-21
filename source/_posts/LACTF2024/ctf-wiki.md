@@ -16,11 +16,11 @@ We have an xss (sorta):
 
 on the `/create`, in the description that supports markdown, we can put in script tags. 
 
-![](./static/LACTF2024/ctf-wiki-0.png)
+![](../../static/LACTF2024/ctf-wiki-0.png)
 
 If we view the page *without our authentication cookies* (like an incognito tab), we get an xss.
 
-![](./static/LACTF2024/ctf-wiki-1.png)
+![](../../static/LACTF2024/ctf-wiki-1.png)
 
 However, if you are logged in (i.e. if there are cookies), we get redirected to the edit:
 
@@ -31,7 +31,7 @@ def page(pid):
         return redirect("/edit/{}".format(pid))
 {% endccb %}
 
-![](./static/LACTF2024/ctf-wiki-2.png)
+![](../../static/LACTF2024/ctf-wiki-2.png)
 
 So how do we access `/view/<pid>` without the session cookies?
 
@@ -95,7 +95,7 @@ So in order to send a POST request without scripts, we use a form and submit it.
 
 We see that there is a `POST /flag` being sent (I went a bit overkill and track traffic via Requestly):
 
-![](./static/LACTF2024/ctf-wiki-3.png)
+![](../../static/LACTF2024/ctf-wiki-3.png)
 
 
 Now we just need to steal the `w.document.body.innerText`

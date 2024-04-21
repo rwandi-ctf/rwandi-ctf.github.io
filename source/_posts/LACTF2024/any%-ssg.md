@@ -13,7 +13,7 @@ categories: LACTF 2024
 
 So we are given a bootleg Minecraft seed generator in a .jar file. Opening it, we can see that after entering a seed, it will generate a "world", which contains an end portal.
 
-![](./static/LACTF2024/minecraft.png)
+![](../../static/LACTF2024/minecraft.png)
 
 The end portal is the squares around the big orange square, (there are 16). If the circle is black, its not filled, if its green, its filled. We need to fill all 16 squares to win. 
 
