@@ -11,7 +11,7 @@ const people = {
         image: "https://cdn.discordapp.com/avatars/1154815737341419530/642de2cc83c049d7aa44a1ebb4b43331.png",
     },
     fs: {
-        image: "https://cdn.discordapp.com/avatars/933347118402392085/8fe2122c336a05b67a364ef95569685c.png",
+        image: "https://cdn.discordapp.com/avatars/933347118402392085/80aba864de7c265f9f11c94b02709fcf.png",
     },
     treeindustry: {
         image: "https://cdn.discordapp.com/avatars/637581035227447296/84fe734b031efc508797991d7642d295.png",
