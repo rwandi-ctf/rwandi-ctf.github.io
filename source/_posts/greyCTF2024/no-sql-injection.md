@@ -245,7 +245,7 @@ For example, the `/register/1` could store `cndhbmRp` (`rwandi`) in table `token
 
 Basically, it takes the string's binary representation and splits it into chunks of 6 bits each to be converted into the corresponding character:
 |Index|Binary|Char|
-|-----|------|----|
+|:---:|:----:|:--:|
 |0    |000000|A   |
 |⋮|⋮|⋮|
 |25   |011001|Z   |
@@ -258,7 +258,7 @@ Basically, it takes the string's binary representation and splits it into chunks
 |62	  |111110|+   |
 |63	  |111111|/   |
 
-As we can see from the diagram above, every 3 characters of the input/every 4 characters of the output are effectively independent from each other. So when we flip a letter in the base64 output, we will only affect each individual block of 3
+As we can see from the diagram above, every 3 characters of the input/every 4 characters of the output are effectively independent from each other. So when we flip a letter in the base64 output, we will <u>**only affect each individual block of 3**</u>
 
 ## Flipping cases
 
