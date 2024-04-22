@@ -8,14 +8,17 @@
             <div class="tag-cloud-title">
                 <% var visibleTags = 0 %>
                 <% site.tags.each(function(tag){ %>
+                  <!-- maybe add a author check? -->
+                  <!-- like maybe " && !tag.name.includes('author')" -->
                   <% if (tag.length) { %>
                     <% visibleTags += 1 %>
                   <% } %>
                 <% }) %>
                 <%- _p('counter.tag_cloud', visibleTags) %>
             </div>
+            <!-- modified tagcloud to exclude author tags -->
             <div class="tag-cloud-tags">
-              <%- tagcloud({min_font: 12, max_font: 30, amount: 300}) %>
+              <%- tagcloud(site.tags.filter(t=>!t.name.includes('author')), {min_font: 12, max_font: 30, amount: 300}) %>
             </div>
           </div>
         <% } else if (page.type === 'categories') { %>

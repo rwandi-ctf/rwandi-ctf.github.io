@@ -13,9 +13,9 @@ written by {% person hartmannsyg %}
 We are given a binary `./doormat` and a `libc-2.27.so`.
 
 {% ccb terminal:true html:true %}
-<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/hack@ac/doormat</SPAN><SPAN STYLE="color:#98C379;">]
+<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/hack@ac/doormat</SPAN><SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN><SPAN STYLE="color:#DCDFE4;"> checksec doormat
-[</SPAN><SPAN STYLE="color:#61AFEF;">*</SPAN><SPAN STYLE="color:#DCDFE4;">] '/home/suwandi/ctf/hack@ac/doormat/doormat'
+[</SPAN><SPAN STYLE="color:#61AFEF;">*</SPAN><SPAN STYLE="color:#DCDFE4;">] '/home/rwandi/ctf/hack@ac/doormat/doormat'
     Arch:       amd64-64-little
     RELRO:      </SPAN><SPAN STYLE="color:#E06C75;">No RELRO
 </SPAN><SPAN STYLE="color:#DCDFE4;">    Stack:      </SPAN><SPAN STYLE="color:#98C379;">Canary found
@@ -26,7 +26,7 @@ We are given a binary `./doormat` and a `libc-2.27.so`.
 Let's try running the binary
 
 {% ccb terminal:true html:true %}
-<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">suwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/hack@ac/doormat</SPAN><SPAN STYLE="color:#98C379;">]
+<SPAN STYLE="color:#98C379;">┌──(</SPAN><SPAN STYLE="color:#61AFEF;">rwandi㉿ryan</SPAN><SPAN STYLE="color:#98C379;">)-[</SPAN><SPAN STYLE="color:#DCDFE4;">~/ctf/hack@ac/doormat</SPAN><SPAN STYLE="color:#98C379;">]
 └─</SPAN><SPAN STYLE="color:#61AFEF;">$</SPAN><SPAN STYLE="color:#DCDFE4;"> ./doormat
 -----------
 1. View house

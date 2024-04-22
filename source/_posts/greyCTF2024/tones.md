@@ -100,7 +100,9 @@ print(frequencies)
 
 ![](../../static/greyCTF2024/tones_freq.png)
 
-It seems we have equally spaced frequencies, except for 549.0966796875 and 559.86328125 being really close to each other (spoiler alert: this is relevant)
+It looks like we have equally spaced frequencies, except for 549.0966796875 and 559.86328125 being really close to each other.
+
+> spoiler alert: this will be relevant later
 
 ## Spot the pattern
 

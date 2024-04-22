@@ -6,7 +6,6 @@ tags:
 - csp
 - csrf
 - polyglot
-- error
 - xss
 - cookies
 - author-hartmannsyg

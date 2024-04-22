@@ -3,7 +3,7 @@ title: Printwriter -2
 date: 2023-12-05
 tags:
 - web
-- SSTI
+- ssti
 - author-tomato
 - author-fs
 categories: BlahajCTF 2023
