@@ -405,10 +405,10 @@ We can in fact use this to our advantage, as we can *read* from this freed chunk
 
 We may have arbitrary write, but it is useless if we do not know where we can write it to. If we want to convert our arbitrary write ability to spawn in shell, no matter what method we use (overwriting exit handlers, setcontext32, stack leak for ROP, etc...) we need the address of libc. 
 
-Thankfully, the unsortedbin also provides us with a libc leak. If we have a freed chunk and the unsorted bin is empty, both fd and bk point to `main_arena`:
+Thankfully, the unsorted bin also provides us with a libc leak. If we have a freed chunk and the unsorted bin is empty, both fd and bk point to `main_arena`:
 
 {% ccb html:true %}
-<SPAN STYLE="color:#D4BE98;">0x55bda7b758b0  </SPAN><SPAN STYLE="color:#A9B665;">0x0000000000000000      </SPAN><SPAN STYLE="color:#7DAEA3;">0x0000000000000431      ........1.......         </SPAN><SPAN STYLE="color:#D4BE98;">&lt;-- unsortedbin[all][0]
+<SPAN STYLE="color:#D4BE98;">0x55bda7b758b0  </SPAN><SPAN STYLE="color:#A9B665;">0x0000000000000000      </SPAN><SPAN STYLE="color:#7DAEA3;">0x0000000000000431      ........1.......         </SPAN><SPAN STYLE="color:#D4BE98;">&lt;-- unsorted bin[all][0]
 0x55bda7b758c0  </SPAN><SPAN STYLE="color:#7DAEA3;"><span style="border:2px solid #EA6962">0x00007fdc24706ce0</span>     <span style="border:2px solid #EA6962">0x00007fdc24706ce0</span>      .lp$.....lp$....
 </SPAN><SPAN STYLE="color:#D4BE98;">0x55bda7b758d0  </SPAN><SPAN STYLE="color:#7DAEA3;">0x0000000000000000      0x0000000000000000      ................
 </SPAN><SPAN STYLE="color:#D4BE98;">0x55bda7b758e0  </SPAN><SPAN STYLE="color:#7DAEA3;">0x0000000000000000      0x0000000000000000      ................</SPAN>

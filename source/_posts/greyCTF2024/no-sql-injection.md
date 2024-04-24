@@ -268,7 +268,7 @@ Let's work backwards. We want a modified token such that `JSON.parse(atob(modifi
 <span class="punctuation">{</span><span class="attr">"name"</span><span class="punctuation">:</span><span class="string">"x"</span><span class="punctuation">,</span><span class="attr">"admin"</span><span class="punctuation">:</span><span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>
 {% endccb %}
 
-However, we can't simply set our username as `x","admin":true,`. (as we have seen earlier, we can't have raw quotes in our username or they'll get escaped). We have to find case flips that can allow us to not have `"` (or `\`) in our username:
+However, we can't simply set our username as `x","admin":true,`. (as we have seen earlier, we can't have raw quotes in our username or they'll get escaped). We have to find case flips in the base64-encoded JSON string such that we do not have `"` (or `\`) in our username:
 
 ![](../../static/greyCTF2024/nosql_plan.png)
 
