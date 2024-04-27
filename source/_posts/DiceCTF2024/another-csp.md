@@ -4,6 +4,7 @@ date: 2024-02-05
 tags: 
 - web
 - csp
+- css
 - author-hartmannsyg
 categories: DiceCTF 2024
 ---
