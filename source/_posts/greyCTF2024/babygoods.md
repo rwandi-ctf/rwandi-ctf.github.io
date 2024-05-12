@@ -3,7 +3,7 @@ title: BabyGoods
 date: 2024-04-27
 tags: 
 - pwn
-- ROP
+- rop
 - author-fs
 categories: greyCTF 2024
 ---
