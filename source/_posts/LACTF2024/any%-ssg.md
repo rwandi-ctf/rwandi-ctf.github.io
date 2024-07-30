@@ -139,4 +139,15 @@ Now, we have `seed = (a*seed + c) % (2**52)` which is actually an LCG. This mean
 
 ## LLL
 
-i'm too tired so i'll write this tomorrow
+LLL is a lattice reduction algorithm which finds [a basis with short, nearly orthogonal vectors when given an integer lattice basis as input](https://en.wikipedia.org/wiki/Lattice_reduction).
+
+An integer [lattice](https://en.wikipedia.org/wiki/Lattice_(group)) with a basis {%katex%}\{v_1, \cdots, v_n\}{%endkatex%} is
+
+{% katex '{ "displayMode": true }' %}
+\bigg\{\sum_{i=1}^n a_iv_i \bigg| a_i \in \mathbb{Z} \bigg\}
+{% endkatex %}
+
+So for example with n=2, you would get a bunch of regularly spaced dots in 2D space.
+
+Since the algorithm finds a basis, it finds vectors that are a linear combination of the existing basis. It tries to find a short basis as well, which means one whose vectors have a small absolute value. So, to apply this in a cryptographic context, we can supply LLL with vectors {%katex%}\{v_1, \cdots, v_n\}{%endkatex%} and expect a linear combination of those vectors which is roughly minimized.
+
