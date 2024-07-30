@@ -1,6 +1,6 @@
 ---
 title: Learning With Mistakes
-date: 2024-07-29
+date: 2024-07-31
 tags: 
 - crypto
 - author-tomato
