@@ -4,7 +4,7 @@ date: 2024-07-29
 tags: 
 - crypto
 - author-tomato
-categories: GreyCTF Finals 2024
+categories: greyCTF finals 2024
 ---
 
 > Original LWE use field GF(prime). TFHE use Mod(2^n). I use GF(2^n) so that it's still a field so obviously mine is gna be more secure lmao.

@@ -4,7 +4,7 @@ date: 2024-07-29
 tags: 
 - crypto
 - author-tomato
-categories: GreyCTF Finals 2024
+categories: greyCTF finals 2024
 ---
 
 > I came up with a new HMAC algorithm. How has no one thought of this before?
