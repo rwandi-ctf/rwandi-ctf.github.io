@@ -183,7 +183,7 @@ Hence, we can code out a programe that takes out calculated lRam0010310 value, p
 
 Hence, we code out the following programme as such.
 ```py
-bur = 0xa #starting value of lRam00010310
+bur = 0xb #starting value of lRam00010310
 import numpy as np
 
 N =  1000000000000000000-1
@@ -206,7 +206,7 @@ for shift, xor in shifts_and_xors:
 print(bytes(result))
 chars = result 
 
-bur = 0xa
+bur = 0xb
 
 N =  1000000000000000000-1
 
