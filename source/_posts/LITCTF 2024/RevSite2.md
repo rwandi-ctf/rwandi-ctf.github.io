@@ -188,9 +188,9 @@ import numpy as np
 
 N =  1000000000000000000-1
 
-lRam00010310 =(8*((N^2)*((N+1)^2))//4) + (3*N*(N+1)*(2*N+1)//6) + (3*N*(N+1)//2) + (8*N)
+lRam00010310 =(8*((N**2)*((N+1)**2))//4) + (3*N*(N+1)*(2*N+1)//6) + (3*N*(N+1)//2) + (8*N)
 
-print(lRam00010310)
+print(f"LRAM00010310 VALUE: {lRam00010310}")
 
 lRam00010310+=bur
 
@@ -203,14 +203,14 @@ shifts_and_xors = [
 
 for shift, xor in shifts_and_xors:
     result.append(((lRam00010310 >> shift & 0xff) ^ xor))#calculating the value of chracters of the flag
-print(bytes(result))
+
 chars = result 
 
 bur = 0xb
 
 N =  1000000000000000000-1
 
-lRam00010310 =(8*((N^2)*((N+1)^2))//4) + (3*N*(N+1)*(2*N+1)//6) + (3*N*(N+1)//2) + (8*N)
+lRam00010310 =(8*((N**2)*((N+1)**2))//4) + (3*N*(N+1)*(2*N+1)//6) + (3*N*(N+1)//2) + (8*N)
 
 lRam00010310+=bur
 shift_xor_values = [
@@ -221,12 +221,10 @@ shift_xor_values = [
 
 result = [(lRam00010310 >> shift & 0x1ff) ^ xor for shift, xor in shift_xor_values]#calculaing the pixel shifts amount for each chracter
 a=np.argsort(np.array(result))#sorting the array based on the shifts
-print(a)
-print("".join( chr(i) for i in chars))  
 index=0
 
 flag=[chars[i] for i in a]
-print("".join([chr(i) for i in flag]))
+print(f'Missing part of flag is: {"".join([chr(i) for i in flag])}')
 ```
 
 Running this code, we then obtain part of the flag to be ```s0_l457minute!}``` and the full flag would be ```LITCTF{s0_l457minute!}```
