@@ -254,3 +254,160 @@ print(len(poss)) # 1
 Just like that, we have recovered `F(0)`!
 
 ## F(15)
+
+As established, we can get the xor between an even number of `F(x)`. With `F(0)`, we can try recovering others. We know that once `idx` becomes {% katex %} 15 \pmod{16} {%endkatex%}, the blocks don't shuffle around anymore. So, if we get the first `idx` to be 0, and the second `idx` to be {% katex %}n \equiv 15 \pmod{16} {%endkatex%}, the remaining 254 `idx`s would also be {% katex %}n{%endkatex%} and hence cancel out, so in the end what's left over is
+
+{% katex '{ "displayMode": true }' %}
+F(0) \oplus F(15)
+{% endkatex %}
+
+(slightly shifted).
+
+![](./static/AmateursCTF2024/pilfer4.png)
+
+But, this time we don't have to guess a value for the `?` here, since we now know the value of `F(0)`. We need the first byte to be {% katex %}n \equiv 15 \pmod{16} {%endkatex%} after xoring with `F(0)`, so we can just xor the first byte of `F(0)` with {% katex %}n{%endkatex%}. 
+
+```py
+for i in tqdm(range(15, 256, 16)):
+    pt = b"\x00" + ltb(i^^cipher.F(ltb(0))[0]) + b"\x00"*14
+    ct = bytes.fromhex(cipher.encrypt(pt))
+    assert cipher.F(ltb(i)) == strxor(ct, cipher.F(ltb(0))[1:]+b"\x00")
+```
+
+So, now we are able to recover `F(n)` for all {% katex %}n \equiv 15 \pmod{16} {%endkatex%}. 
+
+## F(N)
+
+Our method to get `F(15)` was to set the first `idx` to be 0, and all 255 future `idx`s to be 15. Notice that the first `idx` being 0 isn't actually significant, we just set it to that since we managed to get `F(0)` first. If we set the first `idx` to be N, then by forcing the rest of the `idx`s to be 15, we would again get 
+
+{% katex '{ "displayMode": true }' %}
+F(N) \oplus F(15)
+{% endkatex %}
+
+(slightly shifted).
+
+
+![](./static/AmateursCTF2024/pilfer5.png)
+
+Here, of course, we have to guess the `?` that we set at the `N+1`th index. But again, 15 here is just an example, any number that is {% katex %}15 \pmod{16} {%endkatex%} would work. So, we don't have to try all 256 possible bytes, just 16 bytes. To verify if we have the correct `?`, we check if the last byte is 15, and the second last byte is `N` xored with one of the possible `F(n)` (where {% katex %}n \equiv 15 \pmod{16} {%endkatex%}). Again, to minimize the possibility of a false positive, we can simply run this twice and check that the ending is correct both times. This is able to yield `F(N)` for all `N` that we have not covered so far.
+
+```py
+for n in tqdm(range(1,256)):
+    if n%16!=15:
+        ends = [(bytes([n^^(cipher.F(ltb(i))[-1]),i]), i) for i in range(15, 256, 16)]
+        pt = b""
+        for A in range(16):
+            for _ in range(2):
+                pt1 = list(os.urandom(16))
+                pt1[0] = n
+                pt1[n%16+1] = A
+                pt+=bytes(pt1)
+        ct1b = bytes.fromhex(cipher.encrypt(pt))
+        for j in range(0, len(ct1b), 32):
+            block1, block2 = ct1b[j:j+16], ct1b[j+16:j+32]
+            for end, i in ends:
+                if block1.endswith(end) and block2.endswith(end):
+                    ct = block1
+                    pt = pt[j:j+16]
+                    the = strxor(ct, cipher.F(ltb(i)))
+                    assert cipher.F(ltb(n)) == strxor(pt[1:], the[:n%16]+ct[-1:]+the[n%16:])
+```
+
+## solve script
+
+Finally, we can carry out the reversal as mentioned previously. Here is the solve script I wrote on the day:
+
+{% ccb
+lang:py
+url_text:source  
+scrollable:true
+gutter1:1-93 %}
+conn = remote("chal.amt.rs", 1415r)
+conn.recvuntil("> ")
+conn.sendline("2")
+CIPHERTEXT = bytes.fromhex(conn.recvline().decode().strip())
+Fs={}
+
+end = bytes([0, 15])
+
+for A in tqdm(range(256)):
+    FOUND = False
+    pt1 = b""
+    for B in range(16):
+        for _ in range(2):
+            pt = b"\x00" + ltb(A) + ltb(B) + os.urandom(13)
+            pt1+=pt
+    conn.recvuntil("> ")
+    conn.sendline("1")
+    conn.recvuntil(": ")
+    conn.sendline(pt1.hex())
+    ct1 = conn.recvline()
+    
+    ct1b = bytes.fromhex(ct1.strip().decode())
+    for i in range(0, len(ct1b), 32):
+        block1, block2 = ct1b[i:i+16], ct1b[i+16:i+32]
+        if block1[-2]==0 and block1[-1]%16==15 and block2[-2]==0 and block2[-1]%16==15:
+            print(f"found {0}")
+            FOUND = True
+            ct = block1
+            pt = pt1[i:i+16]
+            nct = btl(strxor(ct[:14], pt[3:]+b"\x00"))
+            cas = ltb(reduce(lambda i,j:i^^j, [nct << (k*8) for k in range(14)]) & ((1<<(14*8))-1)) #cascade xor
+            Fs[0] = ltb(A) + cas
+            break
+    if FOUND: break     
+
+#mod 15
+for i in tqdm(range(15, 256, 16)):
+    pt = b"\x00" + ltb(i^^Fs[0][0]) + b"\x00"*14
+    conn.recvuntil("> ")
+    conn.sendline("1")
+    conn.recvuntil(": ")
+    conn.sendline(pt.hex())
+    ct = bytes.fromhex(conn.recvline().strip().decode())
+    Fs[i] = strxor(ct, Fs[0][1:]+b"\x00")
+
+# rest
+for n in tqdm(range(1,256)):
+    if n%16!=15:
+        ends = [(bytes([n^^(Fs[i][-1]),i]), i) for i in range(15, 256, 16)]
+        pt = b""
+        for A in range(16):
+            for _ in range(2):
+                pt1 = list(os.urandom(16))
+                pt1[0] = n
+                pt1[n%16+1] = A
+                pt+=bytes(pt1)
+        conn.recvuntil("> ")
+        conn.sendline("1")
+        conn.recvuntil(": ")
+        conn.sendline(pt.hex())
+        ct1b = bytes.fromhex(conn.recvline().strip().decode())
+        for j in range(0, len(ct1b), 32):
+            block1, block2 = ct1b[j:j+16], ct1b[j+16:j+32]
+            for end, i in ends:
+                if block1.endswith(end) and block2.endswith(end):
+                    ct = block1
+                    pt = pt[j:j+16]
+                    print(f"found {n}")
+                    the = strxor(ct, Fs[i])
+                    Fs[n] = strxor(pt[1:], the[:n%16]+ct[-1:]+the[n%16:])
+
+poss = []
+for N in range(256): # number of times idx was 15
+    c = CIPHERTEXT
+    if N%2==1: # idx was 15 an odd number of times, xor once
+        L, R = c[:-1], c[-1:]
+        L = strxor(L, Fs[R[0]])
+        c = L + R
+    for i in range(256-N):
+        L, R = c[:-1], c[-1:]
+        L = strxor(L, Fs[R[0]])
+        if i!=255-N: idx = L[-1]%16 # use second last byte as idx
+        else: idx = 0 # this was the first step, idx = 0
+        c = L[:idx] + R + L[idx:]
+    poss.append(c)
+
+print([i for i in poss if all(j<128 for j in i)])
+{% endccb %}
+giving the flag somewhere there: `amateursCTF{i_love_cycles_4nd_cycl3s_anD_cYcl3s_AND_cyCLEs_aNd_cyc135_4319d671}`
