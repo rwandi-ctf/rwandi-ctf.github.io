@@ -321,7 +321,14 @@ Finally, we can carry out the reversal as mentioned previously. Here is the solv
 lang:py
 url_text:source  
 scrollable:true
-gutter1:1-93 %}
+gutter1:1-94 %}
+from pwn import *
+from tqdm.notebook import tqdm
+from os import urandom
+
+def strxor(a: bytes, b: bytes):
+    return bytes([x ^ y for x, y in zip(a, b)])
+
 conn = remote("chal.amt.rs", 1415r)
 conn.recvuntil("> ")
 conn.sendline("2")
