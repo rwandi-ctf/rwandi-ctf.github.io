@@ -15,8 +15,7 @@ This is just a code dump or so, youtube video writeup is [here](https://youtu.be
 
 {% ccb caption:chall.sage
 lang:py
-url_text:source  
-scrollable:true
+url_text:source
 gutter1:1-11 %}
 from Crypto.Util.number import bytes_to_long
 flag = REDACTED 
