@@ -96,7 +96,7 @@ uhhhhhhhhhhhhhhh, we can construct two substrings of the flag `X5S34RCH1` and `Y
 
 Unfortunately someone else blooded this already.
 
-After dying for several minutes, I decided to fall back on the original strategy, but it still didn't work. Then I decided to mix in lowercase letters (cuz why not). And it turns out there was an `f` after `X5S34RCH1` like what the fuck why is there an `f` there ?????????
+After dying for several minutes, I decided to fall back on the normal strategy, but it still didn't work. There was nothing after `grey{X5S34RCH1`. Then I decided to mix in lowercase letters (cuz why not). And it turns out there was an `f` after `X5S34RCH1` like what the fuck why is there an `f` there ?????????
 
 <img src="https://media1.tenor.com/m/JIS_KDKKsgYAAAAd/guaton-computadora.gif" width="500rem">
 
@@ -105,3 +105,5 @@ Anyways, I got the flag: `grey{X5S34RCH1fY0UC4NF1ND1T}` (3rd solve)
 They later updated the description to include that `f` existed, and then a billion people solved it and it went down to 100 points in like three microseconds so it was all for nothing.
 
 <img src="https://media1.tenor.com/m/kU_EwdsrkLkAAAAC/frieren-dies-cold.gif" width="500rem">
+
+## Scripts
