@@ -3,11 +3,11 @@ title: SSTI-Golf
 date: 2024-11-26
 tags: 
 - web
-- author-FS
+- author-fs
 categories: BlahajCTF 2024
 ---
 
-by {% person FS %}
+by {% person fs %}
 
 > I got bored of code-golfing so I decided to come up with ssti-golfing.
 
