@@ -101,3 +101,7 @@ p.sendlineafter(b"Enter your messaage:",payload_1)
 
 p.interactive() #enjoy shell
 ```
+
+Running this, we get the flag ```blahaj{canary_master_101}```. 
+
+Many people got stuck at the self header in pthread_struct coz they didnt know they had to overwrite it with a writeable address so hope this chall taught yall a bit more about canary and pthread exploitation
