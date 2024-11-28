@@ -64,7 +64,6 @@ With this, you can construct a macro that just presses the buttons for you...
 <details>
 <summary>In my case, I used <code>puppeteer</code> to press them for me</summary>
 
-
 ```js
 const puppeteer = require('puppeteer');
 
@@ -107,6 +106,10 @@ const puppeteer = require('puppeteer');
 </details>
 
 While this challenge gets mentioned as a "web" challenge, *this* is why its a misc challenge - there's nothing really *web* about it.
+
+This was effectively a superhuman osu! challenge, so shoutout to the guy who played osu:
+
+![](../../static/BlahajCTF2024/osu.png)
 
 ## Alternative Solutions
 

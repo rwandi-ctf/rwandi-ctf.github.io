@@ -4,7 +4,15 @@ date: 2023-12-02 00:00:00
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-# Test
+# Header 1
+(Header 1 doesn't show in contents so maybe don't use them)
+## Header 2
+### Header 3
+#### Header 4
+
+## Code Blocks
+
+### Normal
 
 ```py
 from Crypto.Cipher import AES
@@ -12,9 +20,9 @@ a = "Normal codeblocks works ig"
 print(a)
 ```
 
-But I have copied [jktrn's](https://github.com/jktrn/enscribe.dev-hexo) codeblock thingy with all the bells and whistles
+### Custom Code Block
 
-If you wanna add fancy things like captions, urls and scrolling etc
+But I have copied [jktrn's](https://github.com/jktrn/enscribe.dev-hexo) codeblock thingy with all the bells and whistles if you wanna add fancy things like captions, urls and scrolling etc
 
 {% ccb caption:vuln-0.c lang:c url:'enscribe.dev/static/picoctf-2022/buffer-overflow/vuln-0.c' gutter1:1-44 url_text:'download source' scrollable:true %}
 #include <stdio.h>
@@ -63,8 +71,9 @@ int main(int argc, char **argv){
 }
 {% endccb %}
 
-you can even do line breaks, hilight code as if it was added, deleted or just normally hilight it. Btw post-line break for some reason everything is -1 idk why you can try to comprehend the `ccb` source code at `themes/cactus/scripts/ccb.js`
-{% ccb lang:js gutter1:1-3,S,6-7 caption:'hello world' url:https://example.com url_text:'hello world' diff_add:2 highlight:5 diff_del:6 %}
+You can even do line breaks, highlight code as if it was added, deleted or just normally highlight it in yellow. Btw post-line break for some reason everything is -1 idk why you can try to comprehend the `ccb` source code at `themes/cactus/scripts/ccb.js`
+
+{% ccb lang:js gutter1:1-3,S,6-7 caption:'Rickroll' url:https://www.youtube.com/watch?v=dQw4w9WgXcQ url_text:'rickroll' diff_add:2 highlight:5 diff_del:6 %}
 function helloworld(){
    console.log('balls');
 }
@@ -77,6 +86,50 @@ const rick = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 you can also <span class='code-segment-highlight'>highlight certain segments</span> of code by manually using html
 {% endccb %}
 
+{% ccb wrapped:true %}
+For super long text, you can make it wrapped. So any exceeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeees gets wrapped
+{% endccb %}
+
+{% ccb terminal:true %}
+If you want to simulate a terminal rather than a code editor, there's an option for that too
+{% endccb %}
+
+
+
+## Math?
+
+We are using [this extension](https://adamliuuu.me/2021/01/15/Add-latex-support-for-hexo/)
+
+### KaTeX
+
+{% katex %}
+c = \pm\sqrt{a^2 + b^2}
+{% endkatex %}
+
+### MathJax example
+
+{% mathjax %}
+c = \pm\sqrt{a^2 + b^2}
+{% endmathjax %}
+
+wait you can just use $$: 
+
+$c = \pm\sqrt{a^2 + b^2}$
+
+## People
+
+inline people like {% person treeindustry %} {% person foo %} {% person tomato %} {% person hartmannsyg %} {% person fs %}
+
+add people by editing `themes/cactus/scripts/person.js`
+
+### Authoring
+
+simply do `author-<name>` like so for tags, all tags that start with `author-` get hidden through some black magic at `themes/cactus/layout/_partial/post/tag.ejs`
+```yaml
+tags: 
+- web
+- author-hartmannsyg
+```
 
 ## Pasting (colored) stuff from terminal
 
@@ -108,41 +161,3 @@ document.addEventListener('paste', function(e) {
 then it logs the html for me
 
 I then remove the `<HTML>`, `<HEAD>` and `<BODY>` tags all the `background-color:#0c0c0c;` attribute and also changed the `font-size` to `13px`
-
-I still think it looks a bit weird but whatever
-
-## Math?
-
-installed it from [here](https://adamliuuu.me/2021/01/15/Add-latex-support-for-hexo/)
-
-### KaTex
-
-{% katex %}
-c = \pm\sqrt{a^2 + b^2}
-{% endkatex %}
-
-### MathJax example
-
-{% mathjax %}
-\frac{1}{x^2-1}
-{% endmathjax %}
-
-wait you can just use $$: 
-
-$\frac{1}{x^2-1}$
-
-## People
-
-inline people like {% person treeindustry %} {% person foo %} {% person tomato %} {% person hartmannsyg %} {% person fs %}
-
-add people by editing `themes/cactus/scripts/person.js`
-
-### Authoring
-
-
-simply do `author-<name>` like so for tags, all tags that start with `author-` get hidden through some black magic at `themes/cactus/layout/_partial/post/tag.ejs`
-```
-tags: 
-- web
-- author-hartmannsyg
-```
