@@ -4,7 +4,7 @@ date: 2024-11-30
 tags: 
 - pwn
 - author-fs
-- Buffer Overflow
+- buffer overflow
 categories: YBNCTF 2024
 ---
 
@@ -13,7 +13,6 @@ by {% person fs %}
 This challenge revolves a vulnerability around strlen() C and involves a buffer overflow.
 
 ```c
-
 undefined8 main(void)
 
 {
@@ -55,7 +54,6 @@ LAB_00401324:
   uStack_90 = 0x401338;
   exit(0);
 }
-
 ```
 
 We also see there's a win() function that cats out flag on remote server. Given that strlen() only counts up to null byte and scanf() is vulnerable to buffer overflow and we need to contain the string 'yesbutnoYESBUTNO' inside our input, we can construct our payload as such. Payload example: (b'yesbutnoYESBUTNO'+b'\x00\x00\x00\x00')\*5 (this just gets our payload to 100 length)+b'A'*padding to rbp+b"A"\*8 (overwrite rbp) + ret gadget (stack alignment issue)+address of win()(get rip register to point to win() function address),
