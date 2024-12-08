@@ -4,6 +4,7 @@ date: 2023-12-05
 tags: 
 - crypto
 - author-tomato
+- writeup-prize
 categories: BlahajCTF 2023
 ---
 

@@ -6,6 +6,7 @@ tags:
 - sql
 - base64
 - author-hartmannsyg
+- writeup-prize
 categories: greyCTF 2024
 ---
 

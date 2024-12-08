@@ -5,6 +5,7 @@ tags:
 - web
 - css
 - author-hartmannsyg
+- writeup-prize
 categories: greyCTF 2024
 ---
 

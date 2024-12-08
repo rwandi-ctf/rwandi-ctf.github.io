@@ -1,6 +1,7 @@
 - [CTFTime page](https://ctftime.org/team/224317)
 - No we are not actually from rwanda
 - [Every CTF](/categories) we wrote a writeup for
+- [List of writeups that got a prize](/tags/writeup-prize/)
 
 ## Members
 

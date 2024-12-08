@@ -5,6 +5,7 @@ tags:
 - rev
 - scratch
 - author-treeindustry
+- writeup-prize
 categories: BlahajCTF 2023
 ---
 
