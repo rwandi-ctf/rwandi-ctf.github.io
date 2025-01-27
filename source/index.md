@@ -17,3 +17,8 @@ Every squad got the
 - {% person fs %}
 
 - random [algo](/tags/algo) person: {% person squiddy %}
+
+<details>
+<summary>Visitor Counter [EXPERIMENTAL]</summary>
+    <img src="https://counter.honk.li/cmoe?name=rwandi&theme=gelbooru" alt="counter"/>
+</details>
