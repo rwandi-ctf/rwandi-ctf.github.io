@@ -1,13 +1,14 @@
 ---
-title: fsophammer
-date: 2025-02-01 21:52
+title: Feedback Service
+date: 2024-11-27
 tags: 
 - pwn
-- author-FS
-categories: LACTF 2024
+- author-fs
+categories: BlahajCTF 2024
 ---
 
-upsolved by {% person FS %}
+by {% person fs %}
+
 
 My first attempt at a leakless pwn. Below is the source code of the program.
 
