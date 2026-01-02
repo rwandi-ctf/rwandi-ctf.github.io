@@ -10,7 +10,7 @@ categories: YBNCTF 2025
 by {% person fs %}
 
 I didnt actually join YBNCTF as a participant so I just asked the chal author for the chal binaries and decided to solve them during the CTF for fun
-For all the pwn challenges, I decided to solve the medium-insane ones all with unintended methods but I think this challenge is the most interesting out of them so I'm making a writeup for this
+For the pwn challenges I tried, I solved all of them with unintended methods but I think this challenge is the most interesting out of them so I'm making a writeup for this
 
 Below is the program source code 
 
