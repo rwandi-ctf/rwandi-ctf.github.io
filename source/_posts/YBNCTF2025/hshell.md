@@ -221,7 +221,7 @@ But how do you achieve something like this?
 
 First step: we allocate multiple bufs (>0x410 size) by creating multiple string variables and we intentionally create 2 variables that share the same var->buf pointer. We free one of them and first allocate a number var to get rid of the pointer in tcache produced by free(var) and then reallocate the buf as a new_var and create another variable below it (victim var) as well as 1 other variable (varA).
 
-Let's once again create another variable called var B with the same string making var A and var B to share the same buffer. But let's now free var A and allocate first a number to use up the freed Variable in tcache, and then allocate back var Cas a string to reuse the freed var->buf that was previously in var A 
+Let's once again create another variable called var B with the same string making var A and var B to share the same buffer. But let's now free var A and allocate first a number to use up the freed Variable in tcache, and then allocate back var C as a string to reuse the freed var->buf that was previously in var A 
 
 Now, the new_var size would be set to 0x30 however from a different variable, we can use the UAF and technically now modify the new_var->buf using modify_var to instead read in >0x410 bytes and overwrite the size field of the chunk belonging to victim var to something even greater say 0x600 bytes.
 
