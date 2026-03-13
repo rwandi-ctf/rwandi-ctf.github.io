@@ -11,7 +11,7 @@ by {% person fs %}
 
 This was a pwn challenge from LakeCTF 2025 quals which was the 2nd least solved pwn chal next to still-not-malloc. I upsolved this challenge but I kind of started late when I did this challenge so I could have completed this challenge in time but whatever
 
-I think the intended and frankly a much cleaner solution has been documented here (https://samuzora.com/posts/lakectf-2025#unlink-this) but I think my method is pure unlinking bs so I decided to make a writeup for this
+I think the intended and frankly a much cleaner solution has been documented here (https://samuzora.com/posts/lakectf-2025#unlink-this) but I think my method is pure unlinking chaos so I decided to make a writeup for this
 
 Below is the program source code (jemalloc pwn)
 
@@ -208,7 +208,7 @@ A DLL whose head and tail is managed by head_next and head_prev links in objects
 Now, these session objects prev and next pointers as well as challenge_len can be easily corrupted using the heap overflow vulnerability so let's do that. 
 To achieve a heap leak and an ELF leak (from head_next since the last object's next ptr would point to head_next), we can set up the DLL such that session 1 <=> 2 <=> 3 are created. Once I sign off session 2 and link it back into the DLL and overflow at the same time to corrupt the prev and next pointers of session 3 while setting challenge len to be > 0x100 due to the logic of linkin() taking place after memcpy, session3's next pointer will be set to session 2 while it's prev is corrupted and challenge_len overwrriten. Now our DLL looked like session 1 => session3 <=> session 2. Now, say we unlink session 1 and link it back in, this will reset the prev pointer of session3 to point to head_next like session3 <=> session2 <=> session1. Now, let's add in session 4 which would be the object we OOB read into session3 <=> session2 <=> session1 <=> session4.
 
-Once we unlink session 3, we will be able to read the pointers in session 4 which grants us heap and ELF leak. Now, from this point onwards, I won't be giving an illustration of the DLL because it will become severely fucked and you would have to trace this manually with gdb (like how I did 💔)
+Once we unlink session 3, we will be able to read the pointers in session 4 which grants us heap and ELF leak. Now, from this point onwards, I won't be giving an illustration of the DLL because it will become severely sccrewed up and you would have to trace this manually with gdb (like how I did 💔)
 
 Now, to get the libc leak, this is where my method strays off the intended method since the intended method fakes a crypto object first and populates it with printf GOT (elf leak needed) to leak libc but I decided to go about this a different method and literally link in the real crypto object into the DLL to later unlink it to leak the pointers.
 
